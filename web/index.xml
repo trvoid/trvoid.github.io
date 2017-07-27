@@ -11,14 +11,15 @@
     
     
     <item>
-      <title></title>
+      <title>Hugo &#43; DocDock 웹사이트를 GitHub으로 서비스</title>
       <link>https://trvoid.github.io/web/web01-hugo-docdock-github/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://trvoid.github.io/web/web01-hugo-docdock-github/</guid>
-      <description>Hugo + DocDock 웹사이트를 GitHub으로 서비스 Hugo 프레임워크에 DocDock 테마를 추가하여 정적 웹사이트를 만들고 이를 GitHub에 올려서 서비스하는 과정을 정리하였습니다.
+      <description>Hugo 프레임워크에 DocDock 테마를 추가하여 정적 웹사이트를 만들고 이를 GitHub에 올려서 서비스하는 과정을 정리하였습니다.
 [TOC]
-1 제품 소개 1.1 Hugo  정적 웹사이트를 생성하는 도구. Go 언어로 개발함.  1.2 DocDock  기술 문서 작성을 위한 Hugo용 테마. Learn 테마를 기반으로 함.  1.3 GitHub  소스 버전 관리 서비스 제공. 웹사이트 서비스 제공.  2 Hugo와 DocDock 설치 다음과 같은 환경에서 설치를 진행하고 이 문서를 작성하였습니다.</description>
+1 제품 소개 1.1 Hugo  정적 웹사이트를 생성하는 도구. Go 언어로 개발함.  1.2 DocDock  기술 문서 작성을 위한 Hugo용 테마. Learn 테마를 기반으로 함.  1.3 GitHub  소스 버전 관리 서비스 제공. 웹사이트 서비스 제공.  2 Hugo와 DocDock 설치 다음과 같은 환경에서 설치를 진행하고 이 문서를 작성하였습니다.
+ 프로세서: Intel Core i5 (x64 기반) 운영체제: Windows 10 (64비트)  2.</description>
     </item>
     
   </channel>

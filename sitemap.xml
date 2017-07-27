@@ -7,10 +7,6 @@
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/web/web01-hugo-docdock-github/</loc>
-  </url>
-  
-  <url>
     <loc>https://trvoid.github.io/ble/ble01-intro/</loc>
   </url>
   
@@ -29,6 +25,10 @@
   
   <url>
     <loc>https://trvoid.github.io/</loc>
+  </url>
+  
+  <url>
+    <loc>https://trvoid.github.io/web/web01-hugo-docdock-github/</loc>
   </url>
   
   <url>
