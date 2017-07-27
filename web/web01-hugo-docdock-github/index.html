@@ -31,7 +31,7 @@
     
 
   </head>
-  <body class="" data-url="/_header/">
+  <body class="" data-url="/web/web01-hugo-docdock-github/">
     <nav id="sidebar" class="">
 
 
@@ -242,7 +242,7 @@
   
     
     <li data-nav-id="/web/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -253,7 +253,7 @@
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -276,7 +276,7 @@
   
     
       <li data-nav-id="/web/web01-hugo-docdock-github/" class="dd-item
-     
+     active
       ">
         <a href="/web/web01-hugo-docdock-github/">
         <span></span> 
@@ -328,6 +328,16 @@
                 <span class="links">
                 
 
+
+
+
+
+
+
+ <a href='/'>Home</a> > <a href='/web/'>Web</a> > 
+
+ 
+
  
 
    
@@ -335,7 +345,36 @@
             </div>
             <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li><a href="#hugo-docdock-웹사이트를-github으로-서비스">Hugo + DocDock 웹사이트를 GitHub으로 서비스</a>
+<ul>
+<li><a href="#1-제품-소개">1 제품 소개</a>
+<ul>
+<li><a href="#1-1-hugo">1.1 Hugo</a></li>
+<li><a href="#1-2-docdock">1.2 DocDock</a></li>
+<li><a href="#1-3-github">1.3 GitHub</a></li>
+</ul></li>
+<li><a href="#2-hugo와-docdock-설치">2 Hugo와 DocDock 설치</a>
+<ul>
+<li><a href="#2-1-hugo-설치">2.1 Hugo 설치</a></li>
+<li><a href="#2-2-테마-docdock-추가">2.2 테마 DocDock 추가</a></li>
+</ul></li>
+<li><a href="#3-컨텐츠-생성">3 컨텐츠 생성</a>
+<ul>
+<li><a href="#3-1-컨텐츠-파일-작성">3.1 컨텐츠 파일 작성</a></li>
+<li><a href="#3-2-개발-서버로-웹사이트-검증">3.2 개발 서버로 웹사이트 검증</a></li>
+</ul></li>
+<li><a href="#4-컨텐츠-배치">4 컨텐츠 배치</a>
+<ul>
+<li><a href="#4-1-설정">4.1 설정</a></li>
+<li><a href="#4-2-컨텐츠를-배치용으로-변환">4.2 컨텐츠를 배치용으로 변환</a></li>
+<li><a href="#4-3-컨텐츠를-github에-배치">4.3 컨텐츠를 GitHub에 배치</a></li>
+</ul></li>
+<li><a href="#참고-자료">참고 자료</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -350,7 +389,228 @@
 
 
 
-<p>trvoid</p>
+
+
+<h1 id="hugo-docdock-웹사이트를-github으로-서비스">Hugo + DocDock 웹사이트를 GitHub으로 서비스</h1>
+
+<p><a href="https://gohugo.io/">Hugo</a> 프레임워크에 <a href="https://themes.gohugo.io/docdock/">DocDock</a> 테마를 추가하여 정적 웹사이트를 만들고 이를 <a href="https://github.com/">GitHub</a>에 올려서 서비스하는 과정을 정리하였습니다.</p>
+
+<p>[TOC]</p>
+
+<h2 id="1-제품-소개">1 제품 소개</h2>
+
+<h3 id="1-1-hugo">1.1 Hugo</h3>
+
+<ul>
+<li>정적 웹사이트를 생성하는 도구.</li>
+<li>Go 언어로 개발함.</li>
+</ul>
+
+<h3 id="1-2-docdock">1.2 DocDock</h3>
+
+<ul>
+<li>기술 문서 작성을 위한 Hugo용 테마.</li>
+<li>Learn 테마를 기반으로 함.</li>
+</ul>
+
+<h3 id="1-3-github">1.3 GitHub</h3>
+
+<ul>
+<li>소스 버전 관리 서비스 제공.</li>
+<li>웹사이트 서비스 제공.</li>
+</ul>
+
+<h2 id="2-hugo와-docdock-설치">2 Hugo와 DocDock 설치</h2>
+
+<p>다음과 같은 환경에서 설치를 진행하고 이 문서를 작성하였습니다.</p>
+
+<ul>
+<li>프로세서: Intel Core i5 (x64 기반)</li>
+<li>운영체제: Windows 10 (64비트)</li>
+</ul>
+
+<h3 id="2-1-hugo-설치">2.1 Hugo 설치</h3>
+
+<p>1) <a href="https://github.com/gohugoio/hugo/releases">Hugo Releases</a> 페이지에서  hugo_0.25.1_Windows-64bit.zip 파일을 다운로드하고 압축을 풉니다.</p>
+
+<p>2) 압축을 푼 폴더를 환경 변수 PATH에 추가하고 명령창을 엽니다.</p>
+
+<p>3) 다음과 같이 명령을 실행하여 새 Hugo 사이트를 생성합니다.</p>
+
+<pre><code>C:\DevApps\hugo_0.25.1_Windows-64bit&gt;hugo new site quickstart
+Congratulations! Your new Hugo site is created in C:\DevApps\hugo_0.25.1_Windows-64bit\quickstart.
+
+Just a few more steps and you're ready to go:
+
+1. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/, or
+   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+2. Perhaps you want to add some content. You can add single files
+   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+3. Start the built-in live server via &quot;hugo server&quot;.
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.
+</code></pre>
+
+<p>위 명령은 quickstart 폴더에 새 사이트를 만듭니다.</p>
+
+<p>4) 위에서 생성한 Hugo 사이트 폴더를 Git 저장소로 만듭니다.</p>
+
+<pre><code>&gt; cd quickstart
+&gt; git init
+</code></pre>
+
+<h3 id="2-2-테마-docdock-추가">2.2 테마 DocDock 추가</h3>
+
+<p>1) Hugo 테마 DocDock을 추가합니다.</p>
+
+<pre><code>&gt; cd quickstart
+&gt; git submodule add https://github.com/vjeantet/hugo-theme-docdock.git themes/docdock
+</code></pre>
+
+<p>2) 테마 DocDock을 사용하도록 config.toml 파일에 다음 한 줄을 추가합니다.</p>
+
+<pre><code>theme = &quot;docdock&quot;
+</code></pre>
+
+<h2 id="3-컨텐츠-생성">3 컨텐츠 생성</h2>
+
+<h3 id="3-1-컨텐츠-파일-작성">3.1 컨텐츠 파일 작성</h3>
+
+<p>content 폴더 아래에 다음 파일들을 만들고 제시한 내용들을 추가합니다.</p>
+
+<ul>
+<li><p>content/_header.md</p>
+
+<pre><code>QuickStart
+</code></pre></li>
+
+<li><p>content/_index.md</p>
+
+<pre><code>---
+Title: &quot;Home&quot;
+---
+# Home
+</code></pre></li>
+
+<li><p>content/ble/_index.md</p>
+
+<pre><code>---
+Title: &quot;Bluetooth Low Energy&quot;
+---
+</code></pre></li>
+
+<li><p>content/ble/ble01-intro.md</p>
+
+<pre><code>---
+Title: &quot;BLE01 - Introduction&quot;
+---
+</code></pre></li>
+
+<li><p>content/ble/ble02-physical-layer.md</p>
+
+<pre><code>---
+Title: &quot;BLE02 - Physical layer&quot;
+---
+</code></pre></li>
+
+<li><p>content/ml/_index.md</p>
+
+<pre><code>---
+Title: &quot;Machine Learning&quot;
+---
+</code></pre></li>
+
+<li><p>content/ml/ml01-intro.md</p>
+
+<pre><code>---
+Title: &quot;ML01 - Introduction&quot;
+---
+</code></pre></li>
+
+<li><p>content/ml/ml02-linear-regression.md</p>
+
+<pre><code>---
+Title: &quot;ML02 - Linear regression&quot;
+---
+</code></pre></li>
+</ul>
+
+<h3 id="3-2-개발-서버로-웹사이트-검증">3.2 개발 서버로 웹사이트 검증</h3>
+
+<p>1) Hugo 개발 서버를 실행합니다.</p>
+
+<pre><code>&gt; cd quickstart
+&gt; hugo serve
+</code></pre>
+
+<p>2) 브라우져로 아래 주소에 연결합니다.</p>
+
+<pre><code>http://localhost:1313
+</code></pre>
+
+<p>3) 화면 왼쪽 사이드바에 메뉴가 나타나고 각각의 메뉴 항목을 클릭하여 위에서 작성한 모든 컨텐츠를 볼 수 있는지 확인합니다.</p>
+
+<h2 id="4-컨텐츠-배치">4 컨텐츠 배치</h2>
+
+<p>앞 단원에서 생성한 컨텐츠를 배치용으로 변환한 다음 GitHub 저장소에 올립니다. GitHub 계정의 사용자 이름이 *yourname*이라고 하면 GitHub 저장소 주소와 여기에 연결된 웹사이트 주소는 다음과 같습니다.</p>
+
+<p>저장소 주소:</p>
+
+<pre><code>https://github.com/yourname/yourname.github.io.git
+</code></pre>
+
+<p>웹사이트 주소:</p>
+
+<pre><code>https://yourname.github.io
+</code></pre>
+
+<h3 id="4-1-설정">4.1 설정</h3>
+
+<p>config.toml</p>
+
+<pre><code>baseURL = &quot;https://yourname.github.io&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;trvoid&quot;
+theme = &quot;docdock&quot;
+</code></pre>
+
+<h3 id="4-2-컨텐츠를-배치용으로-변환">4.2 컨텐츠를 배치용으로 변환</h3>
+
+<pre><code>&gt; cd quickstart
+&gt; hugo
+</code></pre>
+
+<p>위 명령이 끝나면 아래 폴더에서 배치용 컨텐츠를 찾을 수 있습니다.</p>
+
+<pre><code>quickstart/public/
+</code></pre>
+
+<h3 id="4-3-컨텐츠를-github에-배치">4.3 컨텐츠를 GitHub에 배치</h3>
+
+<p>1) GitHub의 웹사이트 저장소를 복제합니다.</p>
+
+<pre><code>&gt; git clone https://github.com/yourname/yourname.github.io.git
+</code></pre>
+
+<p>2) 배치용 컨텐츠를 복제한 저장소에 덮어씁니다.</p>
+
+<p>3) 변경 사항을 commit하고 push하면 GitHub 저장소에 반영됩니다.</p>
+
+<p>4) 브라우져를 열고 다음 주소에 연결합니다</p>
+
+<pre><code>https://yourname.github.io
+</code></pre>
+
+<p>5) 화면 왼쪽 사이드바에 메뉴가 나타나고 각각의 메뉴 항목을 클릭하여 위에서 작성한 모든 컨텐츠를 볼 수 있는지 확인합니다.</p>
+
+<h2 id="참고-자료">참고 자료</h2>
+
+<ul>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start</a></li>
+<li><a href="https://themes.gohugo.io/">Hugo Themes</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04">How To Install and Use Hugo, a Static Site Generator, on Ubuntu 14.04</a></li>
+</ul>
 
 
 <footer class=" footline" >
@@ -490,6 +750,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -503,6 +764,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -523,6 +785,8 @@
         
 
 
+        
+            <a class="nav nav-prev" href="/web/" title="Web"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="/ble/" title="Bluetooth Low Energy" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
