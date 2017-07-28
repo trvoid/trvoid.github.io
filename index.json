@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/_header/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "trvoid\n"
+},
+{
+	"uri": "/ble/ble01-intro/",
+	"title": "BLE01 - Introduction",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/ble/ble02-physical-layer/",
+	"title": "BLE02 - Physical layer",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/ble/",
+	"title": "Bluetooth Low Energy",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/",
+	"title": "Home",
+	"tags": [],
+	"description": "",
+	"content": " trvoid 기술 문서 작성을 위한 소프트웨어 개발자의 웹사이트\n"
+},
+{
+	"uri": "/web/web01-hugo-docdock-github/",
+	"title": "Hugo + DocDock 웹사이트를 GitHub으로 호스팅하기",
+	"tags": [],
+	"description": "",
+	"content": " Hugo 프레임워크에 DocDock 테마를 추가하여 정적 웹사이트를 만들고 이를 GitHub에 올려서 서비스하는 과정을 정리하였습니다.\n1 제품 소개 1.1 Hugo  정적 웹사이트를 생성하는 도구. Go 언어로 개발함.  1.2 DocDock  기술 문서 작성을 위한 Hugo용 테마. Learn 테마를 기반으로 함.  1.3 GitHub Pages  정적 웹사이트 호스팅 서비스를 무료로 제공. GitHub 저장소와 직접 연결. 개인, 조직, 프로젝트 유형에 따른 페이지 제공. 사이트 저장 용량은 최대 1GB.  2 Hugo와 DocDock 설치 다음과 같은 환경에서 설치를 진행하고 이 문서를 작성하였습니다.\n 프로세서: Intel Core i5 (x64 기반) 운영체제: Windows 10 (64비트)  2.1 Hugo 설치 1) Hugo Releases 페이지에서 hugo_0.25.1_Windows-64bit.zip 파일을 다운로드하고 압축을 풉니다.\n2) 압축을 푼 폴더를 환경 변수 PATH에 추가하고 명령창을 엽니다.\n3) 다음과 같이 명령을 실행하여 새 Hugo 사이트를 생성합니다.\nC:\\DevApps\\hugo_0.25.1_Windows-64bit\u0026gt;hugo new site quickstart Congratulations! Your new Hugo site is created in C:\\DevApps\\hugo_0.25.1_Windows-64bit\\quickstart. Just a few more steps and you're ready to go: 1. Download a theme into the same-named folder. Choose a theme from https://themes.gohugo.io/, or create your own with the \u0026quot;hugo new theme \u0026lt;THEMENAME\u0026gt;\u0026quot; command. 2. Perhaps you want to add some content. You can add single files with \u0026quot;hugo new \u0026lt;SECTIONNAME\u0026gt;\\\u0026lt;FILENAME\u0026gt;.\u0026lt;FORMAT\u0026gt;\u0026quot;. 3. Start the built-in live server via \u0026quot;hugo server\u0026quot;. Visit https://gohugo.io/ for quickstart guide and full documentation.  위 명령은 quickstart 폴더에 새 사이트를 만듭니다.\n4) 위에서 생성한 Hugo 사이트 폴더를 Git 저장소로 만듭니다.\n\u0026gt; cd quickstart \u0026gt; git init  2.2 테마 DocDock 추가 1) Hugo 테마 DocDock을 추가합니다.\n\u0026gt; cd quickstart \u0026gt; git submodule add https://github.com/vjeantet/hugo-theme-docdock.git themes/docdock  2) 테마 DocDock을 사용하도록 config.toml 파일에 다음 한 줄을 추가합니다.\ntheme = \u0026quot;docdock\u0026quot;  3 컨텐츠 생성 3.1 컨텐츠 파일 작성 content 폴더 아래에 다음 파일들을 만들고 제시한 내용들을 추가합니다.\n content/_header.md\nQuickStart  content/_index.md\n--- Title: \u0026quot;Home\u0026quot; --- # Home  content/ble/_index.md\n--- Title: \u0026quot;Bluetooth Low Energy\u0026quot; ---  content/ble/ble01-intro.md\n--- Title: \u0026quot;BLE01 - Introduction\u0026quot; ---  content/ble/ble02-physical-layer.md\n--- Title: \u0026quot;BLE02 - Physical layer\u0026quot; ---  content/ml/_index.md\n--- Title: \u0026quot;Machine Learning\u0026quot; ---  content/ml/ml01-intro.md\n--- Title: \u0026quot;ML01 - Introduction\u0026quot; ---  content/ml/ml02-linear-regression.md\n--- Title: \u0026quot;ML02 - Linear regression\u0026quot; ---   3.2 개발 서버로 웹사이트 검증 1) Hugo 개발 서버를 실행합니다.\n\u0026gt; hugo server  2) 브라우져로 아래 주소에 연결합니다.\nhttp://localhost:1313  3) 화면 왼쪽 사이드바에 메뉴가 나타나고 각각의 메뉴 항목을 클릭하여 위에서 작성한 모든 컨텐츠를 볼 수 있는지 확인합니다.\n4 컨텐츠 배치 content 폴더 아래에서 생성한 컨텐츠를 GitHub Pages를 통해서 서비스하려면 먼저 배치용 컨텐츠로 변환해야 합니다. 변환 결과는 public 폴더 아래에 저장되고 public 폴더 아래의 내용을 GitHub 저장소에 올립니다. GitHub 계정의 사용자 이름이 yourname 이라고 하면 GitHub 저장소 주소와 여기에 연결된 웹사이트 주소는 다음과 같습니다.\nGitHub 저장소 주소:\nhttps://github.com/yourname/yourname.github.io.git  GitHub Pages 웹사이트 주소:\nhttps://yourname.github.io  4.1 설정 config.toml 파일을 열고 baseURL 항목의 값을 GitHub Pages 웹사이트 주소로 지정합니다.\nbaseURL = \u0026quot;https://yourname.github.io\u0026quot; languageCode = \u0026quot;en-us\u0026quot; title = \u0026quot;trvoid\u0026quot; theme = \u0026quot;docdock\u0026quot;  4.2 컨텐츠를 배치용으로 변환 아래와 같이 명령을 실행하여 배치용 컨텐츠로 변환합니다.\n\u0026gt; hugo  위 명령이 끝나면 아래 폴더에서 배치용 컨텐츠를 찾을 수 있습니다.\npublic/  4.3 컨텐츠를 GitHub에 배치 1) GitHub의 웹사이트 저장소를 복제합니다.\n\u0026gt; git clone https://github.com/yourname/yourname.github.io.git  2) 배치용 컨텐츠를 복제한 저장소에 덮어씁니다.\n3) 변경 사항을 commit하고 push하면 GitHub 저장소에 반영됩니다.\n4) 브라우져를 열고 다음 주소에 연결합니다\nhttps://yourname.github.io  5) 화면 왼쪽 사이드바에 메뉴가 나타나고 각각의 메뉴 항목을 클릭하여 위에서 작성한 모든 컨텐츠를 볼 수 있는지 확인합니다.\n참고 자료  Hugo Quick Start Hugo Themes How To Install and Use Hugo, a Static Site Generator, on Ubuntu 14.04 What is GitHub Pages? Host on GitHub  "
+},
+{
+	"uri": "/ml/ml01-intro/",
+	"title": "ML01 - Introduction",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/ml/ml02-linear-regression/",
+	"title": "ML02 - Linear regression",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/ml/",
+	"title": "Machine Learning",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/web/",
+	"title": "Web",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

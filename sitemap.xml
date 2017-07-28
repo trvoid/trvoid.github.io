@@ -3,53 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://trvoid.github.io/_header/</loc>
+    <loc>/_header/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/ble/ble01-intro/</loc>
+    <loc>/ble/ble01-intro/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/ble/ble02-physical-layer/</loc>
+    <loc>/ble/ble02-physical-layer/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/ble/</loc>
+    <loc>/ble/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/</loc>
+    <loc>/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/web/web01-hugo-docdock-github/</loc>
+    <loc>/web/web01-hugo-docdock-github/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/ml/ml01-intro/</loc>
+    <loc>/ml/ml01-intro/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/ml/ml02-linear-regression/</loc>
+    <loc>/ml/ml02-linear-regression/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/ml/</loc>
+    <loc>/ml/</loc>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://trvoid.github.io/web/</loc>
+    <loc>/web/</loc>
   </url>
   
 </urlset>
