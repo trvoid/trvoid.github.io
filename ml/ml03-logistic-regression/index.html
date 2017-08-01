@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
 
-    <title>Bluetooth Low Energy :: trvoid</title>
+    <title>ML03 - 로지스틱 회귀 :: trvoid</title>
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
     
 
   </head>
-  <body class="" data-url="/ble/">
+  <body class="" data-url="/ml/ml03-logistic-regression/">
     <nav id="sidebar" class="">
 
 
@@ -80,8 +80,8 @@
   
     
     <li data-nav-id="/ble/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/ble/">
@@ -91,7 +91,7 @@
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -161,7 +161,7 @@
   
     
     <li data-nav-id="/ml/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -172,7 +172,7 @@
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -235,7 +235,7 @@
   
     
       <li data-nav-id="/ml/ml03-logistic-regression/" class="dd-item
-     
+     active
       ">
         <a href="/ml/ml03-logistic-regression/">
         <span>ML03 - 로지스틱 회귀</span> 
@@ -351,7 +351,12 @@
 
 
 
- <a href='/'>Home</a> > Bluetooth Low Energy
+
+
+
+ <a href='/'>Home</a> > <a href='/ml/'>Machine Learning</a> > ML03 - 로지스틱 회귀
+
+ 
 
  
 
@@ -360,7 +365,18 @@
             </div>
             <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-소개">1 소개</a>
+<ul>
+<li><a href="#1-1-시그모이드-함수와-로지스틱-함수">1.1 시그모이드 함수와 로지스틱 함수</a></li>
+</ul></li>
+<li><a href="#3-참고-자료">3 참고 자료</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -369,7 +385,7 @@
         
         <div id="body-inner">
           
-            <h1>Bluetooth Low Energy</h1>
+            <h1>ML03 - 로지스틱 회귀</h1>
           
 
 
@@ -377,75 +393,26 @@
 
 
 
+<h2 id="1-소개">1 소개</h2>
+
+<h3 id="1-1-시그모이드-함수와-로지스틱-함수">1.1 시그모이드 함수와 로지스틱 함수</h3>
+
+<p>아래 수식에 따르면 시그모이드 함수는 로지스틱 함수의 특별한 경우에 해당합니다.</p>
+
+<p>로지스틱 함수:</p>
+
+<p>$$f(x)=\frac { L }{ 1+{ e }^{ -k(x-{ x }_{ 0 }) } } $$</p>
+
+<p>시그모이드 함수:</p>
+
+<p>$$s(x)=\frac { 1 }{ 1+{ e }^{-x} } $$</p>
+
+<h2 id="3-참고-자료">3 참고 자료</h2>
+
+
 <footer class=" footline" >
 	
 </footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post ble">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/ble/ble01-intro/">BLE01 - Introduction</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/ble/ble01-intro/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post ble">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/ble/ble02-physical-layer/">BLE02 - Physical layer</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/ble/ble02-physical-layer/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
 
 
 
@@ -481,6 +448,57 @@
             
                 
                     
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -525,58 +543,11 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -596,6 +567,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -631,10 +605,10 @@
 
 
         
-            <a class="nav nav-prev" href="/" title="Home"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/ml/ml02-linear-regression/" title="ML02 - 선형 회귀"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/ble/ble01-intro/" title="BLE01 - Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/web/" title="Web" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -686,3 +660,4 @@
 
   </body>
 </html>
+
