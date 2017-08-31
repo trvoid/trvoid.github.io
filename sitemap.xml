@@ -44,12 +44,28 @@
   </url>
   
   <url>
-    <loc>/ml/</loc>
+    <loc>/ml/ml04-softmax-regression/</loc>
+  </url>
+  
+  <url>
+    <loc>/ml/ml05-neural-network/</loc>
+  </url>
+  
+  <url>
+    <loc>/ml/ml06-cnn/</loc>
+  </url>
+  
+  <url>
+    <loc>/ml/ml07-rnn/</loc>
   </url>
   
   <url>
     <loc>/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/ml/</loc>
   </url>
   
   <url>

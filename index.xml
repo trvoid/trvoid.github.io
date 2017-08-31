@@ -48,7 +48,7 @@
     </item>
     
     <item>
-      <title>ML01 - Introduction</title>
+      <title>ML01 - 소개</title>
       <link>/ml/ml01-intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -80,6 +80,45 @@ $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
 위에서 x는 독립 변수이고 y는 종속 변수입니다. y는 0 또는 1을 값으로 가집니다.
 1.2 단계별로 과제 해결 아래에서 제시하는 단계별로 과제를 해결합니다.
  데이터 세트를 잘 나타내는 hypothesis를 찾습니다. 데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다.</description>
+    </item>
+    
+    <item>
+      <title>ML04 - 소프트맥스 회귀</title>
+      <link>/ml/ml04-softmax-regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ml/ml04-softmax-regression/</guid>
+      <description> 소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
+주요 용어  다항 로지스틱 회귀 (Multinomial logistic regression) 소프트맥스 함수 Cross entropy  다항 로지스틱 회귀 참고 문서  Multinomial Logistic Regression from Wikipedia Softmax Regression from UFLDL Tutorial What is one hot encoding and when is it used in data science? Log-linear model from Wikipedia  </description>
+    </item>
+    
+    <item>
+      <title>ML05 - 신경망</title>
+      <link>/ml/ml05-neural-network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ml/ml05-neural-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML06 - Convolutional Neural Networks</title>
+      <link>/ml/ml06-cnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ml/ml06-cnn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ML07 - Recurrent Neural Networks</title>
+      <link>/ml/ml07-rnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/ml/ml07-rnn/</guid>
+      <description> 일련의 벡터 $x$에 대하여 각 시점마다 아래의 재귀 공식을 적용하여 처리할 수 있습니다.
+$$ { h }_{ t } = { f }_{ W }({ h }_{ t-1 },{ x }_{ t }) $$ Vanilla Recurrent Neural Network 상태가 하나의 hidden 벡터 $h$로 이루어지는 경우 vanilla RNN이라고 말합니다.
+$$ h_t=tanh(W_{hh}h_{t-1}+W_{xh}x_t) \\ y_t=W_{hy}h_t $$ 참고 문서  Recurrent Neural Networks from CS231n - Spring 2017  </description>
     </item>
     
   </channel>
