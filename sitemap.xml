@@ -4,18 +4,7 @@
   
   <url>
     <loc>/_header/</loc>
-  </url>
-  
-  <url>
-    <loc>/ble/ble01-intro/</loc>
-  </url>
-  
-  <url>
-    <loc>/ble/ble02-physical-layer/</loc>
-  </url>
-  
-  <url>
-    <loc>/ble/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -32,10 +21,6 @@
   </url>
   
   <url>
-    <loc>/ml/ml01-intro/</loc>
-  </url>
-  
-  <url>
     <loc>/ml/ml02-linear-regression/</loc>
   </url>
   
@@ -48,15 +33,7 @@
   </url>
   
   <url>
-    <loc>/ml/ml05-neural-network/</loc>
-  </url>
-  
-  <url>
-    <loc>/ml/ml06-cnn/</loc>
-  </url>
-  
-  <url>
-    <loc>/ml/ml07-rnn/</loc>
+    <loc>/mathjax-test/</loc>
   </url>
   
   <url>
