@@ -12,39 +12,39 @@
     
     <item>
       <title></title>
-      <link>/_header/</link>
+      <link>/_header.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/_header/</guid>
+      <guid>/_header.html</guid>
       <description>trvoid</description>
     </item>
     
     <item>
       <title>Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기</title>
-      <link>/web/web01-hugo-docdock-github/</link>
+      <link>/web/web01-hugo-docdock-github.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/web/web01-hugo-docdock-github/</guid>
+      <guid>/web/web01-hugo-docdock-github.html</guid>
       <description>Hugo 프레임워크에 DocDock 테마를 추가하여 정적 웹사이트를 만들고 이를 GitHub 저장소에 올려서 GitHub Pages로 호스팅하는 과정을 정리하였습니다.
 1 제품 소개 1.1 Hugo  정적 웹사이트를 생성하는 도구. Go 언어로 개발함.  1.2 DocDock  기술 문서 작성을 위한 Hugo용 테마. Learn 테마를 기반으로 함.  1.3 GitHub Pages  정적 웹사이트 호스팅 서비스를 무료로 제공. GitHub 저장소와 직접 연결. 개인, 조직, 프로젝트 유형에 따른 페이지 제공. 사이트 저장 용량은 최대 1GB.</description>
     </item>
     
     <item>
       <title>ML02 - 선형 회귀</title>
-      <link>/ml/ml02-linear-regression/</link>
+      <link>/ml/ml02-linear-regression.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/ml/ml02-linear-regression/</guid>
+      <guid>/ml/ml02-linear-regression.html</guid>
       <description>1 소개 회귀 분석 과정을 다음 세 단계로 간단하게 정리할 수 있습니다.
  훈련 데이터 세트 (x, y)를 준비합니다. 여기서 x는 독립 변수, y는 종속 변수입니다. 훈련 데이터 세트를 표현할 수 있는 모델을 만들고 가장 근접한 결과를 보여 주는 파라미터를 찾습니다. 새로운 데이터의 x값이 주어질 때 앞에서 얻은 모델을 사용하여 y값을 예측합니다.  모델을 만들 때 종속 변수 y를 독립 변수 x의 일차식으로 표현하면 이를 선형 회귀라고 말합니다. 그리고 x가 하나의 변수이면 일변량 선형 회귀, 둘 이상의 변수이면 다변량 선형 회귀라고 합니다.</description>
     </item>
     
     <item>
       <title>ML03 - 로지스틱 회귀</title>
-      <link>/ml/ml03-logistic-regression/</link>
+      <link>/ml/ml03-logistic-regression.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/ml/ml03-logistic-regression/</guid>
+      <guid>/ml/ml03-logistic-regression.html</guid>
       <description>1 문제를 정의하기 1.1 데이터 세트 이해를 돕기 위하여 다음과 같이 두 종류의 데이터 세트를 준비하고 결과를 비교해 봅니다.
 Dataset-A:
 $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,0,1,1,1,1,1]$$
@@ -57,20 +57,20 @@ $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
     
     <item>
       <title>ML04 - 소프트맥스 회귀</title>
-      <link>/ml/ml04-softmax-regression/</link>
+      <link>/ml/ml04-softmax-regression.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/ml/ml04-softmax-regression/</guid>
+      <guid>/ml/ml04-softmax-regression.html</guid>
       <description> 소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
 주요 용어  다항 로지스틱 회귀 (Multinomial logistic regression) 소프트맥스 함수 Cross entropy  다항 로지스틱 회귀 참고 문서  Multinomial Logistic Regression from Wikipedia Softmax Regression from UFLDL Tutorial What is one hot encoding and when is it used in data science? Log-linear model from Wikipedia  </description>
     </item>
     
     <item>
       <title>MathJax 테스트</title>
-      <link>/mathjax-test/</link>
+      <link>/mathjax-test.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/mathjax-test/</guid>
+      <guid>/mathjax-test.html</guid>
       <description> $$ { h }_{ \theta }(x)={ \theta }_{ 0 }+{ \theta }_{ 1 }{ x }_{ 1 } $$  </description>
     </item>
     

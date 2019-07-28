@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>웹 on trvoid</title>
-    <link>/web/</link>
+    <link>/web.html</link>
     <description>Recent content in 웹 on trvoid</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기</title>
-      <link>/web/web01-hugo-docdock-github/</link>
+      <link>/web/web01-hugo-docdock-github.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/web/web01-hugo-docdock-github/</guid>
+      <guid>/web/web01-hugo-docdock-github.html</guid>
       <description>Hugo 프레임워크에 DocDock 테마를 추가하여 정적 웹사이트를 만들고 이를 GitHub 저장소에 올려서 GitHub Pages로 호스팅하는 과정을 정리하였습니다.
 1 제품 소개 1.1 Hugo  정적 웹사이트를 생성하는 도구. Go 언어로 개발함.  1.2 DocDock  기술 문서 작성을 위한 Hugo용 테마. Learn 테마를 기반으로 함.  1.3 GitHub Pages  정적 웹사이트 호스팅 서비스를 무료로 제공. GitHub 저장소와 직접 연결. 개인, 조직, 프로젝트 유형에 따른 페이지 제공. 사이트 저장 용량은 최대 1GB.</description>
     </item>

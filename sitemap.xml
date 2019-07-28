@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/_header/</loc>
+    <loc>/_header.html</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/categories.html</loc>
     <priority>0</priority>
   </url>
   
@@ -17,36 +17,36 @@
   </url>
   
   <url>
-    <loc>/web/web01-hugo-docdock-github/</loc>
+    <loc>/web/web01-hugo-docdock-github.html</loc>
   </url>
   
   <url>
-    <loc>/ml/ml02-linear-regression/</loc>
+    <loc>/ml/ml02-linear-regression.html</loc>
   </url>
   
   <url>
-    <loc>/ml/ml03-logistic-regression/</loc>
+    <loc>/ml/ml03-logistic-regression.html</loc>
   </url>
   
   <url>
-    <loc>/ml/ml04-softmax-regression/</loc>
+    <loc>/ml/ml04-softmax-regression.html</loc>
   </url>
   
   <url>
-    <loc>/mathjax-test/</loc>
+    <loc>/mathjax-test.html</loc>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/tags.html</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/ml/</loc>
+    <loc>/ml.html</loc>
   </url>
   
   <url>
-    <loc>/web/</loc>
+    <loc>/web.html</loc>
   </url>
   
 </urlset>

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<meta name="generator" content="Hugo 0.56.0" />
     <title>trvoid</title>
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-07-28T22:46:32 KST">
-<title>Home :: trvoid</title>
+<title>기계 학습 :: trvoid</title>
 <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 <link href="./css/font-awesome.min.css" rel="stylesheet">
 <link href="./css/nucleus.css" rel="stylesheet">
@@ -24,7 +23,7 @@
 
     
   </head>
-  <body data-url="/">
+  <body data-url="/ml.html">
     
       <header>
   <div class="logo">
@@ -47,10 +46,11 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/ml.html" class="dd-item haschildren
+    <li data-nav-id="/ml.html" class="dd-item parent active haschildren
         ">
       <div>
-      <a href="./ml.html">기계 학습</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      <a href="./ml.html">기계 학습</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/ml/ml02-linear-regression.html" class="dd-item">
@@ -105,8 +105,12 @@
       <center>Navigation : 
         <select onchange="javascript:location.href = this.value;">
           
-    <option value="/ml.html" >
-   기계 학습</option>
+    <option value="/ml.html"  selected>
+   기계 학습</option> 
+      <option value="/ml/ml02-linear-regression.html" >- ML02 - 선형 회귀</option>
+      <option value="/ml/ml03-logistic-regression.html" >- ML03 - 로지스틱 회귀</option>
+      <option value="/ml/ml04-softmax-regression.html" >- ML04 - 소프트맥스 회귀</option>
+  
     <option value="/web.html" >
    웹</option>
 
@@ -131,27 +135,91 @@
       </div>
     
 
+    <h1>기계 학습</h1>
     
     
     
-    
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
- 
 
 
-<h1 id="trvoid">trvoid</h1>
 
-<p>기술 문서 작성을 위한 소프트웨어 개발자의 웹사이트</p>
+<div class="extra-pagination inner">
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
 
-<h2 id="문서-작성-원칙">문서 작성 원칙</h2>
+</div>
 
-<ul>
-<li>한글 사용자를 위한 문서를 작성합니다.</li>
-<li>이론과 실무를 균형있게 다룹니다.</li>
-<li>타인의 지식을 존중합니다.</li>
-</ul>
+
+   <article class="post ml">
+    <header class="post-header">
+        <h2 class="post-title"><a href="./ml/ml02-linear-regression.html">ML02 - 선형 회귀</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>1 소개 회귀 분석 과정을 다음 세 단계로 간단하게 정리할 수 있습니다.
+ 훈련 데이터 세트 (x, y)를 준비합니다. 여기서 x는 독립 변수, y는 종속 변수입니다. 훈련 데이터 세트를 표현할 수 있는 모델을 만들고 가장 근접한 결과를 보여 주는 파라미터를 찾습니다. 새로운 데이터의 x값이 주어질 때 앞에서 얻은 모델을 사용하여 y값을 예측합니다.  모델을 만들 때 종속 변수 y를 독립 변수 x의 일차식으로 표현하면 이를 선형 회귀라고 말합니다. 그리고 x가 하나의 변수이면 일변량 선형 회귀, 둘 이상의 변수이면 다변량 선형 회귀라고 합니다. <a class="read-more" href="./ml/ml02-linear-regression.html">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post ml">
+    <header class="post-header">
+        <h2 class="post-title"><a href="./ml/ml03-logistic-regression.html">ML03 - 로지스틱 회귀</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>1 문제를 정의하기 1.1 데이터 세트 이해를 돕기 위하여 다음과 같이 두 종류의 데이터 세트를 준비하고 결과를 비교해 봅니다.
+Dataset-A:
+$$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,0,1,1,1,1,1]$$
+Dataset-B:
+$$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
+위에서 x는 독립 변수이고 y는 종속 변수입니다. y는 0 또는 1을 값으로 가집니다.
+1.2 단계별로 과제 해결 아래에서 제시하는 단계별로 과제를 해결합니다.
+ 데이터 세트를 잘 나타내는 hypothesis를 찾습니다. 데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다. <a class="read-more" href="./ml/ml03-logistic-regression.html">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post ml">
+    <header class="post-header">
+        <h2 class="post-title"><a href="./ml/ml04-softmax-regression.html">ML04 - 소프트맥스 회귀</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> 소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
+주요 용어  다항 로지스틱 회귀 (Multinomial logistic regression) 소프트맥스 함수 Cross entropy  다항 로지스틱 회귀 참고 문서  Multinomial Logistic Regression from Wikipedia Softmax Regression from UFLDL Tutorial What is one hot encoding and when is it used in data science? Log-linear model from Wikipedia   <a class="read-more" href="./ml/ml04-softmax-regression.html">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+
+<div style="margin-bottom:2rem"></div>
+
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
 
 
 
@@ -160,7 +228,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="./ml.html" title="기계 학습" style="margin-right: 0px;"><label>기계 학습</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="./" title="Home"> <i class="fa fa-chevron-left"></i><label>Home</label></a>
+    <a class="nav nav-next" href="./ml/ml02-linear-regression.html" title="ML02 - 선형 회귀" style="margin-right: 0px;"><label>ML02 - 선형 회귀</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>

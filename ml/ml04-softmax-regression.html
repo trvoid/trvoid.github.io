@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>trvoid</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-07-28T22:46:32 KST">
+<title>ML04 - 소프트맥스 회귀 :: trvoid</title>
+<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/nucleus.css" rel="stylesheet">
+<link href="../theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/ml/ml04-softmax-regression.html">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <p>trvoid</p>
+
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/" class="dd-item">
+          <a href="../">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="/ml.html" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="../ml.html">기계 학습</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/ml/ml02-linear-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml02-linear-regression.html">
+            ML02 - 선형 회귀
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/ml/ml03-logistic-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml03-logistic-regression.html">
+            ML03 - 로지스틱 회귀
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/ml/ml04-softmax-regression.html" class="dd-item active">
+        <div>
+          <a href="../ml/ml04-softmax-regression.html">
+            ML04 - 소프트맥스 회귀
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/web.html" class="dd-item haschildren
+        ">
+      <div>
+      <a href="../web.html">웹</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/web/web01-hugo-docdock-github.html" class="dd-item">
+        <div>
+          <a href="../web/web01-hugo-docdock-github.html">
+            Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/ml.html" >
+   기계 학습</option> 
+      <option value="/ml/ml02-linear-regression.html" >- ML02 - 선형 회귀</option>
+      <option value="/ml/ml03-logistic-regression.html" >- ML03 - 로지스틱 회귀</option>
+      <option value="/ml/ml04-softmax-regression.html"  selected>- ML04 - 소프트맥스 회귀</option>
+  
+    <option value="/web.html" >
+   웹</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="../js/lunr.min.js"></script>
+        <script type="text/javascript" src="../js/auto-complete.js"></script>
+        <link href="../css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="../js/search.js"></script>
+      </div>
+    
+
+    <h1>ML04 - 소프트맥스 회귀</h1>
+    
+    
+    
+    
+
+<h2 id="소개">소개</h2>
+
+<p>hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.</p>
+
+<h2 id="주요-용어">주요 용어</h2>
+
+<ul>
+<li>다항 로지스틱 회귀 (Multinomial logistic regression)</li>
+<li>소프트맥스 함수</li>
+<li>Cross entropy</li>
+</ul>
+
+<h2 id="다항-로지스틱-회귀">다항 로지스틱 회귀</h2>
+
+<p><img src="https://i2.wp.com/dataaspirant.com/wp-content/uploads/2017/03/Multinomial-Logistic-Classifier-compressor.jpg?w=700" alt="Multinomial logistic regression" /></p>
+
+<h2 id="참고-문서">참고 문서</h2>
+
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Multinomial_logistic_regression">Multinomial Logistic Regression</a> from Wikipedia</li>
+<li><a href="http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/">Softmax Regression</a> from UFLDL Tutorial</li>
+<li><a href="https://www.quora.com/What-is-one-hot-encoding-and-when-is-it-used-in-data-science">What is one hot encoding and when is it used in data science?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logistic_regression#As_a_.22log-linear.22_model">Log-linear model</a> from Wikipedia</li>
+</ol>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="../ml/ml03-logistic-regression.html" title="ML03 - 로지스틱 회귀"> <i class="fa fa-chevron-left"></i><label>ML03 - 로지스틱 회귀</label></a>
+    <a class="nav nav-next" href="../web.html" title="웹" style="margin-right: 0px;"><label>웹</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="../js/clipboard.min.js"></script>
+
+<link href="../css/featherlight.min.css" rel="stylesheet">
+<script src="../js/featherlight.min.js"></script>
+
+
+
+<script src="../theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+  </body>
+</html>

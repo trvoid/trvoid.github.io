@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>trvoid</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-07-28T22:46:32 KST">
+<title>ML02 - 선형 회귀 :: trvoid</title>
+<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/nucleus.css" rel="stylesheet">
+<link href="../theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/ml/ml02-linear-regression.html">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <p>trvoid</p>
+
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/" class="dd-item">
+          <a href="../">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="/ml.html" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="../ml.html">기계 학습</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/ml/ml02-linear-regression.html" class="dd-item active">
+        <div>
+          <a href="../ml/ml02-linear-regression.html">
+            ML02 - 선형 회귀
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/ml/ml03-logistic-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml03-logistic-regression.html">
+            ML03 - 로지스틱 회귀
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/ml/ml04-softmax-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml04-softmax-regression.html">
+            ML04 - 소프트맥스 회귀
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/web.html" class="dd-item haschildren
+        ">
+      <div>
+      <a href="../web.html">웹</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/web/web01-hugo-docdock-github.html" class="dd-item">
+        <div>
+          <a href="../web/web01-hugo-docdock-github.html">
+            Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/ml.html" >
+   기계 학습</option> 
+      <option value="/ml/ml02-linear-regression.html"  selected>- ML02 - 선형 회귀</option>
+      <option value="/ml/ml03-logistic-regression.html" >- ML03 - 로지스틱 회귀</option>
+      <option value="/ml/ml04-softmax-regression.html" >- ML04 - 소프트맥스 회귀</option>
+  
+    <option value="/web.html" >
+   웹</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="../js/lunr.min.js"></script>
+        <script type="text/javascript" src="../js/auto-complete.js"></script>
+        <link href="../css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="../js/search.js"></script>
+      </div>
+    
+
+    <h1>ML02 - 선형 회귀</h1>
+    
+    
+    
+    
+
+<h2 id="1-소개">1 소개</h2>
+
+<p>회귀 분석 과정을 다음 세 단계로 간단하게 정리할 수 있습니다.</p>
+
+<ol>
+<li>훈련 데이터 세트 (x, y)를 준비합니다. 여기서 x는 독립 변수, y는 종속 변수입니다.</li>
+<li>훈련 데이터 세트를 표현할 수 있는 모델을 만들고 가장 근접한 결과를 보여 주는 파라미터를 찾습니다.</li>
+<li>새로운 데이터의 x값이 주어질 때  앞에서 얻은 모델을 사용하여 y값을 예측합니다.</li>
+</ol>
+
+<p>모델을 만들 때 종속 변수 y를 독립 변수 x의 일차식으로 표현하면 이를 <strong>선형 회귀</strong>라고 말합니다. 그리고 x가 하나의 변수이면 <strong>일변량 선형 회귀</strong>, 둘 이상의 변수이면 <strong>다변량 선형 회귀</strong>라고 합니다.</p>
+
+<p>이 문서를 작성하면서 사용하는 주요 용어들은 다음과 같습니다.</p>
+
+<ul>
+<li>hypothesis - 모델을 나타내는 함수 식</li>
+<li>feature - 독립 변수 x의 개별 요소</li>
+<li>cost function - 훈련 데이터 세트의 종속 변수 y와 모델의 예측값의 차이를 나타내는 함수 식</li>
+</ul>
+
+<h2 id="2-일변량-선형-회귀">2 일변량 선형 회귀</h2>
+
+<h3 id="2-1-hypothesis와-cost-function">2.1 Hypothesis와 cost function</h3>
+
+<p>훈련 데이터의 feature가 한 개일 때 hypothesis는 다음과 같이 표현할 수 있습니다.</p>
+
+<div>$$ { h }_{ \theta  }(x)={ \theta  }_{ 0 }+{ \theta  }_{ 1 }{ x }_{ 1 } $$</div>
+
+<p>위의 식에서 \(x\)는 데이터의 feature들이고 \(\theta\)는 찾고자 하는 파라미터들입니다. \(x_0=1\)라고 하면 위의 식을 다음과 같은 형태로 표현할 수 있습니다.</p>
+
+<div>$$ h_\theta(x)=x^T\cdot\theta $$</div>
+<div>$$ x=(x_0,x_1), \theta=(\theta_0,\theta_1) $$</div>
+
+<p>데이터의 개수가 \(m\)일 때 cost function은 다음과 같이 표현할 수 있습니다. \(y\)는 데이터의 결과값이고 \((i)\)는 \(i\)번째 데이터임을 의미합니다.</p>
+
+<div>$$
+J(\theta )=\frac { 1 }{ 2m } \sum _{ i=1 }^{ m }{ { \left( { h }_{ \theta  }({ x }^{ (i) })-{ y }^{ (i) } \right)  }^{ 2 } } 
+$$</div>
+
+<p>hypothesis를 대입하여 위 식을 전개하면 cost function은 각각의 파라미터에 대하여 아래로 볼록한 2차 함수가 됩니다.</p>
+
+<div>$$
+J(\theta )=\frac { 1 }{ 2m } \sum _{ i=1 }^{ m }{ \left( { \theta  }_{ 0 }^{ 2 }+{ \theta  }_{ 1 }^{ 2 }{ x }_{ 1 }^{ (i)2 }+{ y }_{  }^{ (i)2 }+2{ \theta  }_{ 0 }{ \theta  }_{ 1 }{ x }_{ 1 }^{ (i) }-2{ \theta  }_{ 1 }{ x }_{ 1 }^{ (i) }{ y }_{  }^{ (i) }-2{ y }_{  }^{ (i) }{ \theta  }_{ 0 } \right) } 
+$$</div>
+
+<p>이 cost function이 최소값을 가지도록 하는 파라미터 \(\theta\)를 찾는 방법은 <strong>3 다변량 선형 회귀</strong> 단원에서 다루겠습니다.</p>
+
+<h2 id="3-다변량-선형-회귀">3 다변량 선형 회귀</h2>
+
+<h3 id="3-1-hypothesis와-cost-function">3.1 Hypothesis와 cost function</h3>
+
+<p>훈련 데이터의 feature가 \(n\)개일 때 hypothesis는 다음과 같이 표현할 수 있습니다. \(x\)는 데이터의 feature들이고 \(\theta\)는 찾고자 하는 파라미터들입니다.</p>
+
+<div>$$
+{ h }_{ \theta  }(x)={ \theta  }_{ 0 }+{ \theta  }_{ 1 }{ x }_{ 1 }+{ \theta  }_{ 2 }{ x }_{ 2 }+\cdots +{ \theta  }_{ n }{ x }_{ n }
+$$</div>
+
+<p>데이터의 개수가 \(m\)일 때 cost function은 다음과 같이 표현할 수 있습니다. \(y\)는 데이터의 결과값이고 \((i)\)는 \(i\)번째 데이터임을 의미합니다.</p>
+
+<div>$$
+J(\theta )=\frac { 1 }{ 2m } \sum _{ i=1 }^{ m }{ { \left( { h }_{ \theta  }({ x }^{ (i) })-{ y }^{ (i) } \right)  }^{ 2 } } 
+$$</div>
+
+<h3 id="3-2-gradient-descent">3.2 Gradient descent</h3>
+
+<p>cost function의 편미분을 사용하여 cost를 최소화하는 파라미터 $\theta$를 찾을 수 있습니다. 다음은 gradient descent 방식을 나타내는 알고리즘입니다.</p>
+
+<div>$$
+repeat \quad \{ \quad \quad \quad \quad \quad \quad \quad \quad\\
+
+{ \theta  }_{ j }:={ \theta  }_{ j }-\alpha \frac { \partial J(\theta ) }{ \partial { \theta  }_{ j } } \\
+
+\} \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+$$</div>
+
+<div>$$
+\frac { \partial J(\theta ) }{ \partial { \theta  }_{ j } } =\frac { 1 }{ m } \sum _{ i=1 }^{ m }{ \left( { h }_{ \theta  }({ x }^{ (i) })-{ y }^{ (i) } \right) { { x }_{ j } }^{ (i) } } 
+$$</div>
+
+<p>위의 식에서 $\alpha$는 학습률(learning rate)입니다.</p>
+
+<h3 id="3-3-방정식의-해">3.3 방정식의 해</h3>
+
+<p>아래로 볼록한 함수의 경우 기울기가 $0$일 때 최소값을 가지므로 다음 방정식을 풀어서 cost를 최소가 되게 하는 $\theta$를 구할 수도 있습니다.</p>
+
+<div>$$
+\frac { \partial J(\theta ) }{ \partial { \theta  }_{ j } } =\frac { 1 }{ m } \sum _{ i=1 }^{ m }{ \left( { h }_{ \theta  }({ x }^{ (i) })-{ y }^{ (i) } \right) { { x }_{ j } }^{ (i) } } = 0
+$$</div>
+
+<p>위 방정식을 $\theta$에 대해서 풀면 아래의 결과를 얻습니다.</p>
+
+<div>$$
+\theta ={ \left( { X }^{ T }\cdot X \right)  }^{ -1 }\cdot { X }^{ T }\cdot y
+$$</div>
+
+<p>여기서 $X$와 $y$는 다음과 같습니다.</p>
+
+<div>$$
+X=\begin{bmatrix} { x }_{ 0 }^{ (1) } & { x }_{ 1 }^{ (1) } & { x }_{ 2 }^{ (1) } & \cdots  \\ { x }_{ 0 }^{ (2) } & { x }_{ 1 }^{ (2) } & { x }_{ 2 }^{ (2) } & \cdots  \\ { x }_{ 0 }^{ (3) } & { x }_{ 1 }^{ (3) } & { x }_{ 2 }^{ (3) } & \cdots  \\ \vdots  & \vdots  & \vdots  & \ddots  \end{bmatrix}, \quad
+y=\begin{bmatrix} { y }^{ (1) } \\ { y }^{ (2) } \\ { y }^{ (3) } \\ \vdots  \end{bmatrix}
+$$</div>
+
+<p>하지만 이 방식은 몇 가지 단점을 가지고 있습니다.</p>
+
+<ul>
+<li>행렬 ${ { X }^{ T }\cdot X }$에 대한 역행렬이 존재하지 않을 수도 있습니다.</li>
+<li>$n$이 커짐에 따라 계산 비용이 gradient descent 방식보다 빠른 속도로 증가합니다.</li>
+</ul>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="../ml.html" title="기계 학습"> <i class="fa fa-chevron-left"></i><label>기계 학습</label></a>
+    <a class="nav nav-next" href="../ml/ml03-logistic-regression.html" title="ML03 - 로지스틱 회귀" style="margin-right: 0px;"><label>ML03 - 로지스틱 회귀</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="../js/clipboard.min.js"></script>
+
+<link href="../css/featherlight.min.css" rel="stylesheet">
+<script src="../js/featherlight.min.js"></script>
+
+
+
+<script src="../theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+  </body>
+</html>

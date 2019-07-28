@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>trvoid</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-07-28T22:46:32 KST">
+<title>Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기 :: trvoid</title>
+<link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+<link href="../css/nucleus.css" rel="stylesheet">
+<link href="../theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/web/web01-hugo-docdock-github.html">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    <p>trvoid</p>
+
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/" class="dd-item">
+          <a href="../">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="/ml.html" class="dd-item haschildren
+        ">
+      <div>
+      <a href="../ml.html">기계 학습</a><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/ml/ml02-linear-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml02-linear-regression.html">
+            ML02 - 선형 회귀
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/ml/ml03-logistic-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml03-logistic-regression.html">
+            ML03 - 로지스틱 회귀
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/ml/ml04-softmax-regression.html" class="dd-item">
+        <div>
+          <a href="../ml/ml04-softmax-regression.html">
+            ML04 - 소프트맥스 회귀
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/web.html" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="../web.html">웹</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/web/web01-hugo-docdock-github.html" class="dd-item active">
+        <div>
+          <a href="../web/web01-hugo-docdock-github.html">
+            Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기
+          </a>
+        </div>
+    </li>
+        </ul>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/ml.html" >
+   기계 학습</option>
+    <option value="/web.html" >
+   웹</option> 
+      <option value="/web/web01-hugo-docdock-github.html"  selected>- Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기</option>
+  
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="../js/lunr.min.js"></script>
+        <script type="text/javascript" src="../js/auto-complete.js"></script>
+        <link href="../css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="../js/search.js"></script>
+      </div>
+    
+
+    <h1>Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기</h1>
+    
+    
+    
+    
+
+<p><a href="https://gohugo.io/">Hugo</a> 프레임워크에 <a href="https://themes.gohugo.io/docdock/">DocDock</a> 테마를 추가하여 정적 웹사이트를 만들고 이를 <a href="https://github.com/">GitHub</a> 저장소에 올려서 <a href="https://pages.github.com/">GitHub Pages</a>로 호스팅하는 과정을 정리하였습니다.</p>
+
+<h2 id="1-제품-소개">1 제품 소개</h2>
+
+<h3 id="1-1-hugo">1.1 Hugo</h3>
+
+<ul>
+<li>정적 웹사이트를 생성하는 도구.</li>
+<li>Go 언어로 개발함.</li>
+</ul>
+
+<h3 id="1-2-docdock">1.2 DocDock</h3>
+
+<ul>
+<li>기술 문서 작성을 위한 Hugo용 테마.</li>
+<li><a href="https://themes.gohugo.io/hugo-theme-learn/">Learn</a> 테마를 기반으로 함.</li>
+</ul>
+
+<h3 id="1-3-github-pages">1.3 GitHub Pages</h3>
+
+<ul>
+<li>정적 웹사이트 호스팅 서비스를 무료로 제공.</li>
+<li>GitHub 저장소와 직접 연결.</li>
+<li>개인, 조직, 프로젝트 유형에 따른 페이지 제공.</li>
+<li>사이트 저장 용량은 최대 1GB.</li>
+</ul>
+
+<h2 id="2-hugo와-docdock-설치">2 Hugo와 DocDock 설치</h2>
+
+<p>다음과 같은 환경에서 설치를 진행하고 이 문서를 작성하였습니다.</p>
+
+<ul>
+<li>프로세서: Intel Core i5 (x64 기반)</li>
+<li>운영체제: Windows 10 (64 비트)</li>
+</ul>
+
+<h3 id="2-1-hugo-설치">2.1 Hugo 설치</h3>
+
+<p>1) <a href="https://github.com/gohugoio/hugo/releases">Hugo Releases</a> 페이지에서 다음 파일을 다운로드하고 압축을 풉니다.</p>
+
+<pre><code>hugo_0.25.1_Windows-64bit.zip
+</code></pre>
+
+<p>2) 압축을 푼 폴더를 환경 변수 <code>PATH</code>에 추가하고 사이트를 생성하고자 하는 폴더에서 명령창을 엽니다.</p>
+
+<p>3) 다음과 같이 명령을 실행하여 새 Hugo 사이트를 생성합니다.</p>
+
+<pre><code>C:\DevApps\hugo_0.25.1_Windows-64bit&gt;hugo new site quickstart
+Congratulations! Your new Hugo site is created in C:\DevApps\hugo_0.25.1_Windows-64bit\quickstart.
+
+Just a few more steps and you're ready to go:
+
+1. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/, or
+   create your own with the &quot;hugo new theme &lt;THEMENAME&gt;&quot; command.
+2. Perhaps you want to add some content. You can add single files
+   with &quot;hugo new &lt;SECTIONNAME&gt;\&lt;FILENAME&gt;.&lt;FORMAT&gt;&quot;.
+3. Start the built-in live server via &quot;hugo server&quot;.
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.
+</code></pre>
+
+<p>위 명령은 <code>quickstart</code> 폴더에 새 사이트를 만듭니다.</p>
+
+<p>4) 위에서 생성한 Hugo 사이트 폴더를 Git 저장소로 만듭니다.</p>
+
+<pre><code>&gt; cd quickstart
+&gt; git init
+</code></pre>
+
+<p>이후부터 본문에서 언급하는 폴더들과 명령창에서 실행하는 명령들의 기준 위치는 <code>quickstart</code> 폴더입니다.</p>
+
+<h3 id="2-2-테마-docdock-추가">2.2 테마 DocDock 추가</h3>
+
+<p>1) Hugo 테마 DocDock을 <code>themes/dockdock</code> 폴더에 추가합니다.</p>
+
+<pre><code>&gt; git submodule add https://github.com/vjeantet/hugo-theme-docdock.git themes/docdock
+</code></pre>
+
+<p>2) 테마 DocDock을 사용하도록 <code>config.toml</code> 파일에 다음 한 줄을 추가합니다.</p>
+
+<pre><code>theme = &quot;docdock&quot;
+</code></pre>
+
+<h2 id="3-컨텐츠-생성">3 컨텐츠 생성</h2>
+
+<p>컨텐츠는 <code>content</code> 폴더 아래에서 Markdown 문법을 사용하여 작성합니다. 폴더의 계층 구조는 웹사이트 좌측 메뉴바의 계층 구조로 나타납니다. 또한 각 폴더의 <code>_index.md</code> 파일에서 작성한 내용은 해당 폴더의 주 화면에 표시됩니다.</p>
+
+<h3 id="3-1-컨텐츠-파일-작성">3.1 컨텐츠 파일 작성</h3>
+
+<p>실습을 위하여 <code>content</code> 폴더 아래에 다음 파일들을 만들고 제시한 내용들을 저장합니다.</p>
+
+<ul>
+<li><p>_header.md</p>
+
+<p>화면 좌측 상단에 표시할 문구를 작성합니다.</p>
+
+<pre><code>QuickStart
+</code></pre></li>
+
+<li><p>_index.md</p>
+
+<p>홈 화면에서 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;Home&quot;
+---
+# Home
+</code></pre></li>
+
+<li><p>ble/_index.md</p>
+
+<p><code>ble</code> 폴더의 주 화면에서 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;Bluetooth Low Energy&quot;
+---
+</code></pre></li>
+
+<li><p>ble/ble01-intro.md</p>
+
+<p><code>ble</code> 폴더의 하위 메뉴로 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;BLE01 - Introduction&quot;
+---
+</code></pre></li>
+
+<li><p>ble/ble02-physical-layer.md</p>
+
+<p><code>ble</code> 폴더의 하위 메뉴로 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;BLE02 - Physical layer&quot;
+---
+</code></pre></li>
+
+<li><p>ml/_index.md</p>
+
+<p><code>ml</code> 폴더의 주 화면에서 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;Machine Learning&quot;
+---
+</code></pre></li>
+
+<li><p>ml/ml01-intro.md</p>
+
+<p><code>ml</code> 폴더의 하위 메뉴로 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;ML01 - Introduction&quot;
+---
+</code></pre></li>
+
+<li><p>ml/ml02-linear-regression.md</p>
+
+<p><code>ml</code> 폴더의 하위 메뉴로 표시할 문서를 작성합니다.</p>
+
+<pre><code>---
+Title: &quot;ML02 - Linear regression&quot;
+---
+</code></pre></li>
+</ul>
+
+<h3 id="3-2-개발-서버로-웹사이트-검증">3.2 개발 서버로 웹사이트 검증</h3>
+
+<p>1) Hugo 개발 서버를 실행합니다.</p>
+
+<pre><code>&gt; hugo server
+</code></pre>
+
+<p>2) 브라우져로 아래 주소에 연결합니다.</p>
+
+<pre><code>http://localhost:1313
+</code></pre>
+
+<p>3) 화면 왼쪽 사이드바에 메뉴가 나타나고 각각의 메뉴 항목을 클릭하여 위에서 작성한 모든 컨텐츠를 볼 수 있는지 확인합니다.</p>
+
+<h2 id="4-컨텐츠-배치">4 컨텐츠 배치</h2>
+
+<p><code>content</code> 폴더 아래에서 작성한 컨텐츠를 GitHub Pages 서비스를 통해서 호스팅하려면 먼저 배치용 컨텐츠로 변환해야 합니다. 변환 결과는 <code>public</code> 폴더 아래에 저장되고 <code>public</code> 폴더 아래의 내용을 GitHub 저장소에 올리면 바로 웹으로 서비스됩니다. GitHub 계정의 사용자 이름이 <em>yourname</em> 이라고 하면 GitHub 저장소 주소와 여기에 연결된 웹사이트 주소는 다음과 같습니다.</p>
+
+<p>GitHub 저장소 주소:</p>
+
+<pre><code>https://github.com/yourname/yourname.github.io.git
+</code></pre>
+
+<p>GitHub Pages 웹사이트 주소:</p>
+
+<pre><code>https://yourname.github.io
+</code></pre>
+
+<h3 id="4-1-설정">4.1 설정</h3>
+
+<p><code>config.toml</code> 파일을 열고 <code>baseURL</code> 항목의 값을 <code>/</code>로 지정합니다.</p>
+
+<pre><code>baseURL = &quot;/&quot;
+languageCode = &quot;en-us&quot;
+title = &quot;QuickStart&quot;
+theme = &quot;docdock&quot;
+</code></pre>
+
+<h3 id="4-2-github-저장소를-서브모듈로-추가">4.2 GitHub 저장소를 서브모듈로 추가</h3>
+
+<p>GitHub의 웹사이트 저장소를 서브모듈로 <code>public</code> 폴더 아래에 추가합니다.</p>
+
+<pre><code>&gt; git submodule add https://github.com/yourname/yourname.github.io.git public
+</code></pre>
+
+<h3 id="4-3-컨텐츠를-배치용으로-변환">4.3 컨텐츠를 배치용으로 변환</h3>
+
+<p>아래와 같이 명령을 실행하여 배치용 컨텐츠로 변환합니다.</p>
+
+<pre><code>&gt; hugo
+</code></pre>
+
+<p>위 명령이 끝나면 <code>public</code> 폴더에서 배치용 컨텐츠를 찾을 수 있습니다.</p>
+
+<h3 id="4-4-컨텐츠를-github에-배치">4.4 컨텐츠를 GitHub에 배치</h3>
+
+<p>1) <code>public</code> 폴더의 변경 사항을 commit하고 push하면 GitHub 저장소에 반영됩니다.</p>
+
+<p>2) 브라우져를 열고 다음 주소에 연결합니다</p>
+
+<pre><code>https://yourname.github.io
+</code></pre>
+
+<p>3) 화면 왼쪽 사이드바에 메뉴가 나타나고 각각의 메뉴 항목을 클릭하여 위에서 작성한 모든 컨텐츠를 볼 수 있는지 확인합니다.</p>
+
+<h2 id="참고-자료">참고 자료</h2>
+
+<ul>
+<li><a href="https://gohugo.io/getting-started/quick-start/">Hugo Quick Start</a></li>
+<li><a href="https://themes.gohugo.io/">Hugo Themes</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04">How To Install and Use Hugo, a Static Site Generator, on Ubuntu 14.04</a></li>
+<li><a href="https://help.github.com/articles/what-is-github-pages/">What is GitHub Pages?</a></li>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub</a></li>
+</ul>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="../web.html" title="웹"> <i class="fa fa-chevron-left"></i><label>웹</label></a>
+    <a class="nav nav-next" href="../ml.html" title="기계 학습" style="margin-right: 0px;"><label>기계 학습</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="../js/clipboard.min.js"></script>
+
+<link href="../css/featherlight.min.css" rel="stylesheet">
+<script src="../js/featherlight.min.js"></script>
+
+
+
+<script src="../theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+  </body>
+</html>
