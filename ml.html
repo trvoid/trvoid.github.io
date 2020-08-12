@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-28T22:46:32 KST">
+<meta name="revised" content="2020-08-12T09:31:20 KST">
 <title>기계 학습 :: trvoid</title>
 <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
 <link href="./css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/ml.html">
+  <body data-url="./ml.html">
     
       <header>
   <div class="logo">
@@ -86,6 +86,13 @@
         <div>
           <a href="./web/web01-hugo-docdock-github.html">
             Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기
+          </a>
+        </div>
+    </li>
+      <li data-nav-id="/web/web02-hugo-math-expression.html" class="dd-item">
+        <div>
+          <a href="./web/web02-hugo-math-expression.html">
+            Hugo에서 수학식 쓰기
           </a>
         </div>
     </li>
@@ -182,7 +189,7 @@ Dataset-B:
 $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
 위에서 x는 독립 변수이고 y는 종속 변수입니다. y는 0 또는 1을 값으로 가집니다.
 1.2 단계별로 과제 해결 아래에서 제시하는 단계별로 과제를 해결합니다.
- 데이터 세트를 잘 나타내는 hypothesis를 찾습니다. 데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다. <a class="read-more" href="./ml/ml03-logistic-regression.html">&raquo;</a></p>
+ 데이터 세트를 잘 나타내는 hypothesis를 찾습니다. 데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다. 각각의 데이터 세트에 대하여 cost를 최소화하는 hypothesis의 파라미터를 찾습니다. <a class="read-more" href="./ml/ml03-logistic-regression.html">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -199,7 +206,7 @@ $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
         <h2 class="post-title"><a href="./ml/ml04-softmax-regression.html">ML04 - 소프트맥스 회귀</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> 소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
+        <p>소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
 주요 용어  다항 로지스틱 회귀 (Multinomial logistic regression) 소프트맥스 함수 Cross entropy  다항 로지스틱 회귀 참고 문서  Multinomial Logistic Regression from Wikipedia Softmax Regression from UFLDL Tutorial What is one hot encoding and when is it used in data science? Log-linear model from Wikipedia   <a class="read-more" href="./ml/ml04-softmax-regression.html">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -275,34 +282,6 @@ $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
     
     
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-  });
-  MathJax.Hub.Queue(function() {
     
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-
-  MathJax.Hub.Config({
-  
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-  });
-</script>
-
   </body>
 </html>

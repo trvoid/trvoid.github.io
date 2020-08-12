@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-28T22:46:32 KST">
+<meta name="revised" content="2020-08-12T09:31:20 KST">
 <title>ML04 - 소프트맥스 회귀 :: trvoid</title>
 <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/ml/ml04-softmax-regression.html">
+  <body data-url="../ml/ml04-softmax-regression.html">
     
       <header>
   <div class="logo">
@@ -89,6 +89,13 @@
           </a>
         </div>
     </li>
+      <li data-nav-id="/web/web02-hugo-math-expression.html" class="dd-item">
+        <div>
+          <a href="../web/web02-hugo-math-expression.html">
+            Hugo에서 수학식 쓰기
+          </a>
+        </div>
+    </li>
         </ul>
     </li>
 
@@ -139,26 +146,17 @@
     
     
     
-    
-
-<h2 id="소개">소개</h2>
-
+    <h2 id="소개">소개</h2>
 <p>hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.</p>
-
 <h2 id="주요-용어">주요 용어</h2>
-
 <ul>
 <li>다항 로지스틱 회귀 (Multinomial logistic regression)</li>
 <li>소프트맥스 함수</li>
 <li>Cross entropy</li>
 </ul>
-
 <h2 id="다항-로지스틱-회귀">다항 로지스틱 회귀</h2>
-
-<p><img src="https://i2.wp.com/dataaspirant.com/wp-content/uploads/2017/03/Multinomial-Logistic-Classifier-compressor.jpg?w=700" alt="Multinomial logistic regression" /></p>
-
+<p><img src="https://i2.wp.com/dataaspirant.com/wp-content/uploads/2017/03/Multinomial-Logistic-Classifier-compressor.jpg?w=700" alt="Multinomial logistic regression"></p>
 <h2 id="참고-문서">참고 문서</h2>
-
 <ol>
 <li><a href="https://en.wikipedia.org/wiki/Multinomial_logistic_regression">Multinomial Logistic Regression</a> from Wikipedia</li>
 <li><a href="http://ufldl.stanford.edu/tutorial/supervised/SoftmaxRegression/">Softmax Regression</a> from UFLDL Tutorial</li>
@@ -218,34 +216,6 @@
     
     
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-  });
-  MathJax.Hub.Queue(function() {
     
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-
-  MathJax.Hub.Config({
-  
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-  });
-</script>
-
   </body>
 </html>

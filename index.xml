@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on trvoid</title>
@@ -30,6 +30,25 @@
     </item>
     
     <item>
+      <title>Hugo에서 수학식 쓰기</title>
+      <link>/web/web02-hugo-math-expression.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/web/web02-hugo-math-expression.html</guid>
+      <description>MathJax 설정   사용중인 테마의 layout/partials 폴더 아래에 mathjax_support.html 파일을 만들고 다음 내용을 저장합니다.
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; asyncsrc=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt;MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],displayMath: [[&#39;$$&#39;,&#39;$$&#39;]],processEscapes: true,processEnvironments: true,skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],TeX: { equationNumbers: { autoNumber: &amp;quot;AMS&amp;quot; },extensions: [&amp;quot;AMSmath.js&amp;quot;, &amp;quot;AMSsymbols.js&amp;quot;] }}});MathJax.Hub.Queue(function() {// Fix &amp;lt;code&amp;gt; tags after MathJax finishes running. This is a// hack to overcome a shortcoming of Markdown.</description>
+    </item>
+    
+    <item>
+      <title>MathJax 테스트</title>
+      <link>/mathjax-test.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/mathjax-test.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ML02 - 선형 회귀</title>
       <link>/ml/ml02-linear-regression.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -52,7 +71,7 @@ Dataset-B:
 $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
 위에서 x는 독립 변수이고 y는 종속 변수입니다. y는 0 또는 1을 값으로 가집니다.
 1.2 단계별로 과제 해결 아래에서 제시하는 단계별로 과제를 해결합니다.
- 데이터 세트를 잘 나타내는 hypothesis를 찾습니다. 데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다.</description>
+ 데이터 세트를 잘 나타내는 hypothesis를 찾습니다. 데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다. 각각의 데이터 세트에 대하여 cost를 최소화하는 hypothesis의 파라미터를 찾습니다.</description>
     </item>
     
     <item>
@@ -61,17 +80,8 @@ $$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/ml/ml04-softmax-regression.html</guid>
-      <description> 소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
+      <description>소개 hypothesis 함수로 소프트맥스(softmax) 함수를 사용합니다. 이것은 다항 로지스틱 회귀(multinomial logistic regression)라고도 하는데 2개보다 많은 클래스로 분류하고자 할 때 사용할 수 있습니다.
 주요 용어  다항 로지스틱 회귀 (Multinomial logistic regression) 소프트맥스 함수 Cross entropy  다항 로지스틱 회귀 참고 문서  Multinomial Logistic Regression from Wikipedia Softmax Regression from UFLDL Tutorial What is one hot encoding and when is it used in data science? Log-linear model from Wikipedia  </description>
-    </item>
-    
-    <item>
-      <title>MathJax 테스트</title>
-      <link>/mathjax-test.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/mathjax-test.html</guid>
-      <description> $$ { h }_{ \theta }(x)={ \theta }_{ 0 }+{ \theta }_{ 1 }{ x }_{ 1 } $$  </description>
     </item>
     
   </channel>

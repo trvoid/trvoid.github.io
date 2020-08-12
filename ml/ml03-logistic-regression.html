@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-28T22:46:32 KST">
+<meta name="revised" content="2020-08-12T09:31:20 KST">
 <title>ML03 - 로지스틱 회귀 :: trvoid</title>
 <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link href="../css/font-awesome.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/ml/ml03-logistic-regression.html">
+  <body data-url="../ml/ml03-logistic-regression.html">
     
       <header>
   <div class="logo">
@@ -89,6 +89,13 @@
           </a>
         </div>
     </li>
+      <li data-nav-id="/web/web02-hugo-math-expression.html" class="dd-item">
+        <div>
+          <a href="../web/web02-hugo-math-expression.html">
+            Hugo에서 수학식 쓰기
+          </a>
+        </div>
+    </li>
         </ul>
     </li>
 
@@ -139,188 +146,103 @@
     
     
     
-    
-
-<h2 id="1-문제를-정의하기">1 문제를 정의하기</h2>
-
-<h3 id="1-1-데이터-세트">1.1 데이터 세트</h3>
-
+    <h2 id="1-문제를-정의하기">1 문제를 정의하기</h2>
+<h3 id="11-데이터-세트">1.1 데이터 세트</h3>
 <p>이해를 돕기 위하여 다음과 같이 두 종류의 데이터 세트를 준비하고 결과를 비교해 봅니다.</p>
-
 <p><strong>Dataset-A:</strong></p>
-
 <p>$$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,0,1,1,1,1,1]$$</p>
-
 <p><strong>Dataset-B:</strong></p>
-
 <p>$$x=\left[ 1,2,3,4,5,6,7,8,9,10 \right] ,\quad y=[0,0,0,0,1,0,1,1,1,1]$$</p>
-
 <p>위에서 x는 독립 변수이고 y는 종속 변수입니다. y는 0 또는 1을 값으로 가집니다.</p>
-
-<p><img src="../ml/ml03-datasets.png" alt="Datasets" /></p>
-
-<h3 id="1-2-단계별로-과제-해결">1.2 단계별로 과제 해결</h3>
-
+<p><img src="../ml/ml03-datasets.png" alt="Datasets"></p>
+<h3 id="12-단계별로-과제-해결">1.2 단계별로 과제 해결</h3>
 <p>아래에서 제시하는 단계별로 과제를 해결합니다.</p>
-
 <ol>
 <li>데이터 세트를 잘 나타내는 hypothesis를 찾습니다.</li>
 <li>데이터 세트의 y값과 hypothesis의 예측값의 차이를 나타내는 cost function을 정의합니다.</li>
 <li>각각의 데이터 세트에 대하여 cost를 최소화하는 hypothesis의 파라미터를 찾습니다.</li>
 </ol>
-
 <p>이렇게 얻은 hypothesis를 사용하여 새로운 데이터의 y값을 예측합니다.</p>
-
 <h2 id="2-hypothesis-찾기">2 Hypothesis 찾기</h2>
-
 <p>다음은 hypothesis를 정의하는데 도움이 될만한 데이터 세트의 특성입니다.</p>
-
 <ol>
 <li>데이터의 x값에 따라 y값이 0과 1로 구분됩니다.</li>
 <li>x값이 어떤 임계값보다 작을 때는 y값이 0, 크면 y값이 1이라고 말할 수 있습니다.</li>
 <li>y값이 0인 데이터와 1인 데이터의 x값이 서로 겹치는 범위가 데이터 세트에 따라 매우 좁을 수도 있고 넓을 수도 있습니다.</li>
 </ol>
-
 <p>이러한 특성을 고려하여 다음과 같은 의미를 가지는 hypothesis를 찾고자 합니다.</p>
-
 <p>$$p(y=1|x;w)$$</p>
-
 <p>위 표현은 파라미터 w가 정해지고 x값이 주어질 때 y값이 1일 가능성을 의미합니다. p가 가지는 값의 범위는 $0 \sim 1$입니다. p의 값이 0.5 이상이면 y값이 1, 0.5 미만이면 y값이 0이라고 판정합니다.</p>
-
-<h3 id="2-1-첫번째-시도">2.1 첫번째 시도</h3>
-
+<h3 id="21-첫번째-시도">2.1 첫번째 시도</h3>
 <p>다음과 같이 hypothesis는 x의 1차식이라고 가정해 봅니다.</p>
-
 <p>$${ h }_{ w }(x)=w_0+w_1x$$</p>
-
 <p>그러면 $h_w(x)$가 가질 수 있는 값의 범위는 $-\infty \sim +\infty $가 되어 찾고자 하는 hypothesis가 될 수 없습니다.</p>
-
-<h3 id="2-2-두번째-시도">2.2 두번째 시도</h3>
-
+<h3 id="22-두번째-시도">2.2 두번째 시도</h3>
 <p>x의 일차식은 단조증가하거나 단조감소합니다. 따라서 좌변은 이러한 조건을 만족시키는 $h_w(x)$의 함수식이어야 합니다. <strong>y=0일 가능성 대비 y=1일 가능성의 비율</strong>이 단조증가하므로 hypothesis를 다음과 같이 가정해 봅니다.</p>
-
 <p>$$\frac {h_w(x)}{1 - h_w(x)}=w_0+w_1x$$</p>
-
 <p>하지만 $h_w(x)$가 $0 \sim 1$ 사이의 값을 가질 때 좌변이 가질 수 있는 값의 범위는 $0 \sim +\infty$로 여전히 우변이 가질 수 있는 값의 범위와 일치하지 않습니다.</p>
-
 <p>참고로 <strong>y=0일 가능성 대비 y=1일 가능성의 비율</strong>을 <strong>odds ratio</strong>라고 부릅니다.</p>
-
 <p>$$odds(p) = \frac {p} {1-p} =\frac {성공할 \quad 가능성} {실패할 \quad 가능성}$$</p>
-
-<p><img src="../ml/ml03-odds-ratio.png" alt="Odds Ratio" /></p>
-
-<h3 id="2-3-세번째-시도">2.3 세번째 시도</h3>
-
+<p><img src="../ml/ml03-odds-ratio.png" alt="Odds Ratio"></p>
+<h3 id="23-세번째-시도">2.3 세번째 시도</h3>
 <p>값의 범위가 $0 \sim +\infty$일 때 로그를 적용하면 단조증가하면서 값의 범위가 $-\infty \sim +\infty$로 확장됩니다. 그래서 이번에는 좌변에 로그를 적용해 봅니다.</p>
-
 <p>$$log(\frac {h_w(x)}{1 - h_w(x)})=w_0+w_1x$$</p>
-
 <p>Odds ratio에 로그를 적용한 것을 <strong>로짓(logit) 함수</strong>라고 부릅니다.</p>
-
-<p><img src="../ml/ml03-log-odds.png" alt="Log Odds" /></p>
-
+<p><img src="../ml/ml03-log-odds.png" alt="Log Odds"></p>
 <p>이제 좌변과 우변 모두 동일한 값의 범위를 가지도록 하는 방법을 찾았습니다. 위 식을 hypothesis에 대하여 풀면 다음과 같습니다.</p>
-
 <p>$$h_w(x)=\frac {1} {1+{ e }^{ -(w_0 + w_1x) }}$$</p>
-
 <p>$x_0=1$이라고 정의하면 위 수식은 다음과 같이 표현할 수 있습니다.</p>
-
 <p>$$w=(w_0,w_1), \quad x=(x_0,x_1)$$
 $$w_0x_0 + w_1x_1 = w^Tx = z(x)$$
 $$h_w(x)=\frac {1} {1+{ e }^{ -z(x) }}$$</p>
-
 <p>이러한 형태의 함수를 <strong>로지스틱(logistic) 함수</strong>라고 합니다. 또한 그래프로 그려 보면 S자 모양과 비슷하며 <strong>시그모이드(sigmoid) 함수</strong>라고 부르기도 합니다.</p>
-
-<p><img src="../ml/ml03-logistic-function.png" alt="Logistic Function" /></p>
-
+<p><img src="../ml/ml03-logistic-function.png" alt="Logistic Function"></p>
 <p>여기서 눈여겨 볼 것은 좌변에서 사용할 $h_w(x)$의 함수식을 찾을 때 다음 두 가지를 만족시킬 수 있다면 logit 함수가 아니어도 된다는 사실입니다.</p>
-
 <ul>
 <li>단조증가 또는 단조감소</li>
 <li>값의 범위가 $-\infty \sim +\infty $</li>
 </ul>
 
-<div class="alert 
-    alert-info"
- 
-role="alert">문제: logit 함수가 아닌 $h_w(x)$의 함수식을 찾아 보시오.</div>
+<div class="alert alert-info" role="alert">문제: logit 함수가 아닌 $h_w(x)$의 함수식을 찾아 보시오.</div>
 
 <h2 id="3-비용-함수-정의하기">3 비용 함수 정의하기</h2>
-
 <p>선형 회귀에서와 같이 최소자승법을 사용하여 비용 함수를 정의하면 non-convex 함수가 되어 최소값을 찾는 것이 어려워집니다.</p>
-
 <p>$$J(w)=\frac { 1 }{ m } \sum _{ i=1 }^{ m } \frac {1} {2} { (h_w(x^{(i)}) - y^{(i)})^2 }$$</p>
-
 <p>그래서 convex 함수가 되도록 비용 함수를 정의해 보고자 합니다.</p>
-
 <p>$$J(w)=\frac { 1 }{ m } \sum _{ i=1 }^{ m }{ Cost(h_w(x^{(i)}), y^{(i)}) }$$</p>
-
-<h3 id="3-1-첫번째-시도">3.1 첫번째 시도</h3>
-
+<h3 id="31-첫번째-시도">3.1 첫번째 시도</h3>
 <p>개별 데이터에 대한 비용을 계산할 때 사용할 수식을 아래와 같이 정의하면 데이터 세트에 대한 비용 함수는 convex 형태가 됩니다.</p>
-
 <p>$$Cost(h_{ w }(x^{ (i) }),y^{ (i) })=\quad \quad h_w(x^{(i)}), \quad for \quad y^{(i)}=0 $$</p>
-
 <p>$$Cost(h_{ w }(x^{ (i) }),y^{ (i) })=1 - h_w(x^{(i)}), \quad for \quad y^{(i)}=1 $$</p>
-
-<p><img src="../ml/ml03-plain-cost-function.png" alt="Plain cost function" /></p>
-
+<p><img src="../ml/ml03-plain-cost-function.png" alt="Plain cost function"></p>
 <p>이것을 하나의 식으로 표현하면 다음과 같습니다.</p>
-
 <p>$$Cost(h_{ w }(x^{ (i) }),y^{ (i) })=(1-y^{(i)}) h_w(x^{(i)}) + y^{(i)}(1-h_w(x^{(i)})$$</p>
-
 <p>위의 정의에 따르면 y값이 0일 때 예측값이 1이 될 가능성이 0에 가까워지면 비용이 줄어들고, 1에 가까워지면 비용이 늘어나게 됩니다. 마찬가지로 y값이 1일 때 예측값이 1이 될 가능성이 0에 가까워지면 비용이 늘어나고 1에 가까워지면 비용이 줄어듭니다. 따라서 비용 함수를 위와 같이 정의하는 것이 타당하다고 할 수 있습니다.</p>
-
-<h3 id="3-2-두번째-시도">3.2 두번째 시도</h3>
-
+<h3 id="32-두번째-시도">3.2 두번째 시도</h3>
 <p>그런데 log를 사용하면 수학적으로 더 편리할뿐만 아니라 gradient descent 방식으로 최소값을 찾을 때 더 빠른 속도로 최소값에 접근하게 됩니다. 그래서 log를 사용해서 비용 함수를 다시 정의하면 다음과 같습니다.</p>
-
 <p>$$Cost(h_{ w }(x^{ (i) }),y^{ (i) }) = -log(1-h_w (x^{(i)})), \quad {for} \quad y^{(i)} = 0$$</p>
-
 <p>$$Cost(h_{ w }(x^{ (i) }),y^{ (i) }) = \quad \quad -log(h_w (x^{(i)})), \quad {for} \quad y^{(i)} = 1$$</p>
-
-<p><img src="../ml/ml03-log-cost-function.png" alt="Plain cost function" /></p>
-
+<p><img src="../ml/ml03-log-cost-function.png" alt="Plain cost function"></p>
 <p>이것을 하나의 식으로 표현하면 다음과 같습니다.</p>
-
 <p>$$Cost(h_{ w }(x^{ (i) }),y^{ (i) })=-y^{(i)} log(h_w(x^{(i)})) - (1-y^{(i)})log(1-h_w(x^{(i)})$$</p>
-
 <p>첫번째 시도에서 얻은 비용 함수와 비교해 보면 y값이 0일 때 예측값이 1이 될 가능성이 1에 가까워지면 비용이 훨씬 더 가파르게 증가합니다. gradient descent 방식에서는 경사가 심할수록 더 빠른 속도로 최소값에 접근합니다.</p>
-
 <p>이제 하나의 데이터 세트에 대한 비용 함수를 다음과 같이 표현할 수 있습니다.</p>
-
 <p>$$J(w)=\frac { 1 }{ m } \sum _{ i=1 }^{ m }{ \left[ -y^{(i)} log(h_w(x^{(i)})) - (1-y^{(i)})log(1-h_w(x^{(i)}) \right]}$$</p>
-
 <h2 id="4-파라미터-찾기">4 파라미터 찾기</h2>
-
-<h3 id="4-1-gradient-descent">4.1 Gradient descent</h3>
-
+<h3 id="41-gradient-descent">4.1 Gradient descent</h3>
 <p>비용 함수의 편미분을 사용하여 비용을 최소화하는 파라미터 w를 찾을 수 있습니다. 다음은 gradient descent 방식을 나타내는 알고리즘입니다.</p>
-
-<div>$$
-repeat \quad \{ \quad \quad \quad \quad \quad \quad \quad \quad\\
-
-{ w }_{ j }:={ w }_{ j }-\alpha \frac { \partial J(w) }{ \partial { w }_{ j } } \\
-
-\} \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
-$$</div>
-
-<div>$$
-\frac { \partial J(w) }{ \partial { w }_{ j } } =\frac { 1 }{ m } \sum _{ i=1 }^{ m }{ \left( { h }_{ w }({ x }^{ (i) })-{ y }^{ (i) } \right) { { x }_{ j } }^{ (i) } } 
-$$</div>
-
+<!-- raw HTML omitted -->
+<p>{ w }<em>{ j }:={ w }</em>{ j }-\alpha \frac { \partial J(w) }{ \partial { w }_{ j } } \</p>
+<p>} \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad
+$$<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <p>위의 식에서 $\alpha$는 학습률(learning rate)입니다.</p>
-
-<h3 id="4-2-파이썬-코드">4.2 파이썬 코드</h3>
-
+<h3 id="42-파이썬-코드">4.2 파이썬 코드</h3>
 <p>아래 링크는 실습을 위해 작성한 파이썬 노트북입니다.</p>
-
 <ul>
 <li><a href="https://github.com/trvoid/ml-study/blob/master/ML03-LogisticRegression.ipynb">ML03-로지스틱 회귀</a></li>
 </ul>
-
 <p>이 문서의 <strong>1.1 데이터 세트</strong>에서 제시한 두 종류의 데이터 세트에 대하여 각각 로지스틱 회귀를 적용하여 hypothesis의 파라미터를 찾습니다.</p>
-
 <pre><code>0, w: [ 1.  1.],  total_cost: 3.26021492096
 100, w: [-2.6355604   0.42721842],  total_cost: 0.381607976117
 200, w: [-4.20800179  0.33990582],  total_cost: 0.259597699813
@@ -343,26 +265,14 @@ $$</div>
 800, w: [-2.79093454  0.52216342],  total_cost: 0.279841317035
 900, w: [-2.80315452  0.52383585],  total_cost: 0.279836145885
 999, w: [-2.81037234  0.52482432],  total_cost: 0.279834324659
-</code></pre>
-
-<p>Gradient descent를 1000번 적용하여 얻은 w는 다음과 같습니다.</p>
-
+</code></pre><p>Gradient descent를 1000번 적용하여 얻은 w는 다음과 같습니다.</p>
 <p><strong>Dataset-A</strong></p>
-
 <pre><code>999, w: [-7.80178475  0.76287476],  total_cost: 0.107581904528
-</code></pre>
-
-<p><strong>Dataset-B</strong></p>
-
+</code></pre><p><strong>Dataset-B</strong></p>
 <pre><code>999, w: [-2.81037234  0.52482432],  total_cost: 0.279834324659
-</code></pre>
-
-<p>다음은 위에서 찾은 w를 사용하여 그래프로 그린 것입니다.</p>
-
-<p><img src="../ml/ml03-logistic-regression.png" alt="Logistic regression" /></p>
-
+</code></pre><p>다음은 위에서 찾은 w를 사용하여 그래프로 그린 것입니다.</p>
+<p><img src="../ml/ml03-logistic-regression.png" alt="Logistic regression"></p>
 <h2 id="5-참고-자료">5 참고 자료</h2>
-
 <ol>
 <li><a href="http://karlrosaen.com/ml/notebooks/logistic-regression-why-sigmoid/">The Sigmoid Function in Logistic Regression</a> by Karl Rosaen</li>
 <li><a href="http://www.theanalysisfactor.com/what-is-logit-function/">What is a Logit Function and Why Use Logistic Regression?</a> by KAREN GRACE-MARTIN</li>
@@ -420,34 +330,6 @@ $$</div>
     
     
 
-    <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-  });
-  MathJax.Hub.Queue(function() {
     
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-
-  MathJax.Hub.Config({
-  
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-  });
-</script>
-
   </body>
 </html>

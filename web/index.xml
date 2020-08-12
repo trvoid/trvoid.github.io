@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>웹 on trvoid</title>
@@ -18,6 +18,16 @@
       <guid>/web/web01-hugo-docdock-github.html</guid>
       <description>Hugo 프레임워크에 DocDock 테마를 추가하여 정적 웹사이트를 만들고 이를 GitHub 저장소에 올려서 GitHub Pages로 호스팅하는 과정을 정리하였습니다.
 1 제품 소개 1.1 Hugo  정적 웹사이트를 생성하는 도구. Go 언어로 개발함.  1.2 DocDock  기술 문서 작성을 위한 Hugo용 테마. Learn 테마를 기반으로 함.  1.3 GitHub Pages  정적 웹사이트 호스팅 서비스를 무료로 제공. GitHub 저장소와 직접 연결. 개인, 조직, 프로젝트 유형에 따른 페이지 제공. 사이트 저장 용량은 최대 1GB.</description>
+    </item>
+    
+    <item>
+      <title>Hugo에서 수학식 쓰기</title>
+      <link>/web/web02-hugo-math-expression.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/web/web02-hugo-math-expression.html</guid>
+      <description>MathJax 설정   사용중인 테마의 layout/partials 폴더 아래에 mathjax_support.html 파일을 만들고 다음 내용을 저장합니다.
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; asyncsrc=&amp;quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;quot;&amp;gt;MathJax.Hub.Config({tex2jax: {inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],displayMath: [[&#39;$$&#39;,&#39;$$&#39;]],processEscapes: true,processEnvironments: true,skipTags: [&#39;script&#39;, &#39;noscript&#39;, &#39;style&#39;, &#39;textarea&#39;, &#39;pre&#39;],TeX: { equationNumbers: { autoNumber: &amp;quot;AMS&amp;quot; },extensions: [&amp;quot;AMSmath.js&amp;quot;, &amp;quot;AMSsymbols.js&amp;quot;] }}});MathJax.Hub.Queue(function() {// Fix &amp;lt;code&amp;gt; tags after MathJax finishes running. This is a// hack to overcome a shortcoming of Markdown.</description>
     </item>
     
   </channel>
