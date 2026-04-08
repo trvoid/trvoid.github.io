@@ -1,213 +1,250 @@
 <!DOCTYPE html>
-<html>
-  <head>
-	<meta name="generator" content="Hugo 0.74.3" />
-    <title>trvoid</title>
-    
-      <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2020-08-12T09:31:20 KST">
-<title>Home :: trvoid</title>
-<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
-<link href="./css/font-awesome.min.css" rel="stylesheet">
-<link href="./css/nucleus.css" rel="stylesheet">
-<link href="./theme-flex/style.css" rel="stylesheet">
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FedTensor | 데이터 반출 없는 다기관 연합학습 플랫폼</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        :root {
+            --primary-color: #0A2540;
+            --accent-color: #635BFF;
+            --text-color: #333;
+            --bg-light: #F6F9FC;
+        }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 로고 및 텍스트 수평 정렬 컨테이너 */
+        .logo-container {
+            display: flex;
+            align-items: center; /* 수평 중앙 정렬 */
+            gap: 12px; /* 로고 이미지와 텍스트 사이의 간격 */
+            text-decoration: none;
+        }
+        
+        /* 로고 이미지 크기 엄격 제한 */
+        .logo-img {
+            height: 40px; /* 높이 고정 */
+            max-width: 150px; /* 가로로 긴 로고일 경우를 대비한 최대 너비 제한 */
+            object-fit: contain; /* 이미지 비율 유지 */
+        }
+        
+        /* 회사명 텍스트 강조 (메뉴 폰트보다 크고 두껍게) */
+        .logo-text {
+            color: var(--primary-color);
+            font-size: 1.8rem; /* 텍스트 크기 확대 */
+            font-weight: 800; /* 텍스트 굵기 최대 강조 */
+            letter-spacing: -0.5px; /* 약간의 자간 축소로 세련미 추가 */
+        }
 
-<link rel="stylesheet" href="./css/bootstrap.min.css">
-<script src="./js/jquery-2.x.min.js"></script>
-<script type="text/javascript">
-      var baseurl = "\/";
-</script>
-<meta name="description" content="">
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 500; /* 회사명(800) 대비 일반적인 굵기 */
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero {
+            margin-top: 60px;
+            text-align: center;
+            padding: 120px 5%;
+            background-color: var(--bg-light);
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-color);
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .notice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .notice-table th, .notice-table td {
+            border-bottom: 1px solid #eee;
+            padding: 15px;
+            text-align: left;
+        }
+        .notice-table th {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+        }
+        .contact-info {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        footer {
+            background-color: #000;
+            color: #888;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
 
+    <header>
+        <nav>
+            <a href="#" class="logo-container">
+                <img src="logo.png" alt="FedTensor Logo" class="logo-img">
+                <span class="logo-text">페드텐서</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">플랫폼 소개</a></li>
+                <li><a href="#tech">핵심 기술</a></li>
+                <li><a href="#service">MVP 서비스</a></li>
+                <li><a href="#notice">공지사항</a></li>
+                <li><a href="#contact">오시는 길</a></li>
+            </ul>
+        </nav>
+    </header>
 
-
-    
-  </head>
-  <body data-url="./">
-    
-      <header>
-  <div class="logo">
-    
-	
-  
-    <p>trvoid</p>
-
-  
-
-
-  </div>
-  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
-</header>
-<article>
-  <aside>
-    <ul class="menu">
-          <li data-nav-id="/" class="dd-item">
-          <a href="./">
-            <i class="fa fa-fw fa-home"></i>
-          </a>
-          </li>
-    <li data-nav-id="/ml.html" class="dd-item haschildren
-        ">
-      <div>
-      <a href="./ml.html">기계 학습</a><i class="fa fa-angle-right fa-lg category-icon"></i>
-      </div>
-        <ul>
-      <li data-nav-id="/ml/ml02-linear-regression.html" class="dd-item">
-        <div>
-          <a href="./ml/ml02-linear-regression.html">
-            ML02 - 선형 회귀
-          </a>
-        </div>
-    </li>
-      <li data-nav-id="/ml/ml03-logistic-regression.html" class="dd-item">
-        <div>
-          <a href="./ml/ml03-logistic-regression.html">
-            ML03 - 로지스틱 회귀
-          </a>
-        </div>
-    </li>
-      <li data-nav-id="/ml/ml04-softmax-regression.html" class="dd-item">
-        <div>
-          <a href="./ml/ml04-softmax-regression.html">
-            ML04 - 소프트맥스 회귀
-          </a>
-        </div>
-    </li>
-        </ul>
-    </li>
-    <li data-nav-id="/web.html" class="dd-item haschildren
-        ">
-      <div>
-      <a href="./web.html">웹</a><i class="fa fa-angle-right fa-lg category-icon"></i>
-      </div>
-        <ul>
-      <li data-nav-id="/web/web01-hugo-docdock-github.html" class="dd-item">
-        <div>
-          <a href="./web/web01-hugo-docdock-github.html">
-            Hugo &#43; DocDock 웹사이트를 GitHub Pages로 호스팅하기
-          </a>
-        </div>
-    </li>
-      <li data-nav-id="/web/web02-hugo-math-expression.html" class="dd-item">
-        <div>
-          <a href="./web/web02-hugo-math-expression.html">
-            Hugo에서 수학식 쓰기
-          </a>
-        </div>
-    </li>
-        </ul>
-    </li>
-
-
-
-
-    </ul>
-    <section>
+    <section class="hero" id="home">
+        <h1>데이터 반출 없는 다기관 연합 인공지능 학습 플랫폼</h1>
+        <p>데이터 규제와 사일로(Silo) 현상을 기술적으로 극복하는 범용 연합학습 플랫폼. 원본 데이터의 이동 없이 인공지능 모델 가중치만 안전하게 융합합니다.</p>
     </section>
-  </aside>
-  <section class="page">
-    
-    <div class="nav-select">
-      <center>Navigation : 
-        <select onchange="javascript:location.href = this.value;">
-          
-    <option value="/ml.html" >
-   기계 학습</option>
-    <option value="/web.html" >
-   웹</option>
 
-
-
-        </select>
-      </center>
-    </div>
-      <div>
-        <div class="searchbox">
-          <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <section id="about">
+        <h2 class="section-title">데이터 딜레마의 해결책, FedTensor</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>문제: 데이터 딜레마</h3>
+                <p>고성능 AI 개발을 위해 대규모 데이터가 필수적이나, 의료·금융 등 고부가가치 산업일수록 규제 및 보안 이슈로 데이터의 외부 반출과 중앙 집중화가 원천 차단되어 있습니다.</p>
+            </div>
+            <div class="card">
+                <h3>해결: 연합학습(Federated Learning)</h3>
+                <p>각 기관 내부에 학습 전용 엣지(Edge)를 설치하여 데이터를 외부로 유출하지 않습니다. 오직 분산 학습된 '파라미터(가중치)'만 암호화하여 교환하는 딥테크 인프라를 제공합니다.</p>
+            </div>
         </div>
-        <script type="text/javascript" src="./js/lunr.min.js"></script>
-        <script type="text/javascript" src="./js/auto-complete.js"></script>
-        <link href="./css/auto-complete.css" rel="stylesheet">
-        <script type="text/javascript">
-          
-              var baseurl = "\/";
-          
-        </script>
-        <script type="text/javascript" src="./js/search.js"></script>
-      </div>
-    
+    </section>
 
-    
-    
-    
-    
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
- 
-<h1 id="trvoid">trvoid</h1>
-<p>기술 문서 작성을 위한 소프트웨어 개발자의 웹사이트</p>
-<h2 id="문서-작성-원칙">문서 작성 원칙</h2>
-<ul>
-<li>한글 사용자를 위한 문서를 작성합니다.</li>
-<li>이론과 실무를 균형있게 다룹니다.</li>
-<li>타인의 지식을 존중합니다.</li>
-</ul>
+    <section id="tech" style="background-color: var(--bg-light);">
+        <h2 class="section-title">핵심 원천 기술</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>적응형 하이브리드 연합학습 엔진</h3>
+                <p>기관별 데이터 불균형 현상(Non-IID)을 극복하기 위한 독자적 파라미터 결합 알고리즘을 적용하여 최적의 모델 성능과 수렴 속도를 보장합니다.</p>
+            </div>
+            <div class="card">
+                <h3>3중 프라이버시 보호 아키텍처</h3>
+                <p>통신 구간 암호화(mTLS), 연산 환경 보호(TEE), 모델 역공학 방지(SMPC/DP)의 융합 설계를 통해 제로 트러스트(Zero Trust) 보안을 실현합니다.</p>
+            </div>
+            <div class="card">
+                <h3>엣지 탑재형 자동 전처리 모듈</h3>
+                <p>이기종 기기 간의 데이터 편차를 각 기관의 엣지 서버에서 자동으로 표준화하여 학습의 안정성을 획득합니다.</p>
+            </div>
+        </div>
+    </section>
 
+    <section id="service">
+        <h2 class="section-title">첫번째 MVP: 요로결석 쇄석술 성공률 예측 AI</h2>
+        <div class="card" style="text-align: center;">
+            <p>플랫폼의 성능 검증과 초기 수익 창출을 위한 첫 번째 응용 서비스입니다. 3차 대학병원과 1·2차 비뇨의학과 네트워크를 연결하여, 다기관 데이터 기반의 신뢰도 높은 성공률 예측 지표를 제공합니다. 이를 통해 환자의 불필요한 시술을 방지하고 병원의 매출 최적화를 지원합니다.</p>
+        </div>
+    </section>
 
+    <section id="notice">
+        <h2 class="section-title">공지사항</h2>
+        <table class="notice-table">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">번호</th>
+                    <th style="width: 60%;">제목</th>
+                    <th style="width: 25%;">작성일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>페드텐서 공식 홈페이지 오픈 안내</td>
+                    <td>2026.03.24</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
+    <section id="contact">
+        <h2 class="section-title">오시는 길</h2>
+        <div class="contact-info">
+            <h3 style="margin-top: 0;">페드텐서 (FedTensor)</h3>
+            <p><strong>주소:</strong> 전북특별자치도 전주시 덕진구 오공로 123, 5층 504호 (만성동, 전북테크비즈센터)</p>
+            <!--<p><strong>Email:</strong> contact@fedtensor.com</p>-->
+        </div>
+    </section>
 
-    
-    
-        <div class="chevrons">
-    <div id="navigation">
-<a class="nav nav-next" href="./ml.html" title="기계 학습" style="margin-right: 0px;"><label>기계 학습</label><i class="fa fa-chevron-right"></i></a></div>
-  </div>
+    <footer>
+        <p>&copy; 2026 FedTensor. All rights reserved. | Trademark registered Jan 7, 2026.</p>
+        <p>fedtensor.com | fedtensor.kr</p>
+    </footer>
 
-  </section>
-</article>
-
-<footer>
-
-<div class="footline">
-    
-
-    
-
-    
-
-    
-  </div>
-
-
-	<div>
-
-
-  
-    Create a content/_footer.md file to customize the footer content
-  
-
-
-
-	</div>
-</footer>
-
-<script src="./js/clipboard.min.js"></script>
-
-<link href="./css/featherlight.min.css" rel="stylesheet">
-<script src="./js/featherlight.min.js"></script>
-
-
-
-<script src="./theme-flex/script.js"></script>
-
-
-    
-
-    
-    
-
-    
-  </body>
+</body>
 </html>
