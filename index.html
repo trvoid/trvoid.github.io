@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FedTensor | 데이터 반출 없는 다기관 연합 인공지능 학습 솔루션</title>
+    <title>FedTensor | 데이터 반출 없는 다기관 연합 인공지능 학습 플랫폼</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
         :root {
@@ -12,6 +13,7 @@
             --text-color: #333;
             --bg-light: #F6F9FC;
         }
+
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', sans-serif;
             margin: 0;
@@ -19,14 +21,16 @@
             color: var(--text-color);
             line-height: 1.6;
         }
+
         header {
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
         }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -35,28 +39,36 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         /* 로고 및 텍스트 수평 정렬 컨테이너 */
         .logo-container {
             display: flex;
-            align-items: center; /* 수평 중앙 정렬 */
-            gap: 12px; /* 로고 이미지와 텍스트 사이의 간격 */
+            align-items: center;
+            /* 수평 중앙 정렬 */
+            gap: 12px;
+            /* 로고 이미지와 텍스트 사이의 간격 */
             text-decoration: none;
         }
-        
+
         /* 로고 이미지 크기 엄격 제한 */
         .logo-img {
-            height: 40px; /* 높이 고정 */
-            max-width: 150px; /* 가로로 긴 로고일 경우를 대비한 최대 너비 제한 */
-            object-fit: contain; /* 이미지 비율 유지 */
+            height: 40px;
+            /* 높이 고정 */
+            max-width: 150px;
+            /* 가로로 긴 로고일 경우를 대비한 최대 너비 제한 */
+            object-fit: contain;
+            /* 이미지 비율 유지 */
         }
-        
+
         /* 회사명 텍스트 강조 (메뉴 폰트보다 크고 두껍게) */
         .logo-text {
             color: var(--primary-color);
-            font-size: 1.8rem; /* 텍스트 크기 확대 */
-            font-weight: 800; /* 텍스트 굵기 최대 강조 */
-            letter-spacing: -0.5px; /* 약간의 자간 축소로 세련미 추가 */
+            font-size: 1.8rem;
+            /* 텍스트 크기 확대 */
+            font-weight: 800;
+            /* 텍스트 굵기 최대 강조 */
+            letter-spacing: -0.5px;
+            /* 약간의 자간 축소로 세련미 추가 */
         }
 
         .nav-links {
@@ -66,80 +78,97 @@
             margin: 0;
             padding: 0;
         }
+
         .nav-links a {
             text-decoration: none;
             color: var(--primary-color);
             font-size: 1rem;
-            font-weight: 500; /* 회사명(800) 대비 일반적인 굵기 */
+            font-weight: 500;
+            /* 회사명(800) 대비 일반적인 굵기 */
             transition: color 0.3s;
         }
+
         .nav-links a:hover {
             color: var(--accent-color);
         }
+
         /* 외부 링크 아이콘 스타일 (선택사항) */
         .external-link-icon {
             font-size: 0.8em;
             margin-left: 4px;
             opacity: 0.7;
         }
+
         section {
             padding: 80px 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
+
         .hero {
             margin-top: 60px;
             text-align: center;
             padding: 120px 5%;
             background-color: var(--bg-light);
         }
+
         .hero h1 {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
+
         .hero p {
             font-size: 1.2rem;
             color: #555;
             max-width: 700px;
             margin: 0 auto 30px auto;
         }
+
         .section-title {
             text-align: center;
             font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 40px;
         }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
+
         .card {
             background: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             border-top: 4px solid var(--accent-color);
         }
+
         .card h3 {
             color: var(--primary-color);
             margin-top: 0;
         }
+
         .notice-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        .notice-table th, .notice-table td {
+
+        .notice-table th,
+        .notice-table td {
             border-bottom: 1px solid #eee;
             padding: 15px;
             text-align: left;
         }
+
         .notice-table th {
             background-color: var(--bg-light);
             color: var(--primary-color);
         }
+
         .contact-info {
             background-color: var(--primary-color);
             color: #fff;
@@ -147,6 +176,7 @@
             border-radius: 8px;
             text-align: center;
         }
+
         footer {
             background-color: #000;
             color: #888;
@@ -154,6 +184,7 @@
             padding: 20px;
             font-size: 0.9rem;
         }
+
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -161,6 +192,7 @@
             flex-direction: column;
             gap: 10px;
         }
+
         .footer-bottom {
             max-width: 1200px;
             margin: 20px auto 0 auto;
@@ -171,6 +203,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -180,19 +213,20 @@
                 <span class="logo-text">페드텐서</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">플랫폼 소개</a></li>
+                <li><a href="#about">기술 소개</a></li>
                 <li><a href="#tech">핵심 기술</a></li>
-                <li><a href="#service">솔루션</a></li>
+                <li><a href="#service">적용 분야</a></li>
                 <li><a href="#notice">공지사항</a></li>
-                <li><a href="https://blog.fedtensor.kr" target="_blank" rel="noopener noreferrer">기술 블로그<span class="external-link-icon">↗</span></a></li>
+                <li><a href="https://blog.fedtensor.kr" target="_blank" rel="noopener noreferrer">기술 블로그<span
+                            class="external-link-icon">↗</span></a></li>
                 <li><a href="#contact">오시는 길</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero" id="home">
-        <h1>데이터 반출 없는 다기관 연합 인공지능 학습 솔루션</h1>
-        <p>데이터 규제와 사일로(Silo) 현상을 기술적으로 돌파하는 딥테크 인프라. FedTensor는 기관 내 데이터를 안전하게 유지하며 지능만 공유하는 신뢰 기반의 솔루션을 제공합니다.</p>
+        <h1>데이터 반출 없는 다기관 연합 인공지능 학습 플랫폼</h1>
+        <p>데이터 규제와 사일로(Silo) 현상에 기술적으로 대응하는 딥테크 인프라. FedTensor는 기관 내 데이터를 안전하게 유지하며 지능만 공유하는 신뢰 기반의 플랫폼을 지향합니다.</p>
     </section>
 
     <section id="about">
@@ -204,7 +238,8 @@
             </div>
             <div class="card">
                 <h3>해결: 연합학습(Federated Learning)</h3>
-                <p>FedTensor는 각 기관에 직접 구축되는 엣지 아키텍처를 통해 데이터 반출 없이 모델을 고도화합니다. 암호화된 파라미터 결합으로 정보 주권을 보장합니다.</p>
+                <p>FedTensor는 각 기관에 직접 구축되는 엣지 아키텍처를 통해 데이터 반출 없이 모델을 고도화합니다. 암호화된 파라미터 결합을 통해 기관별 정보 주권을 최대한 보호하는 것을
+                    원칙으로 합니다.</p>
             </div>
         </div>
     </section>
@@ -214,29 +249,38 @@
         <div class="grid">
             <div class="card">
                 <h3>적응형 하이브리드 연합학습 엔진</h3>
-                <p>기관별 데이터 불균형(Non-IID) 상황에서도 독자적인 결합 알고리즘을 통해 단일 기관 학습 대비 압도적인 모델 정확도를 보장합니다.</p>
+                <p>기관별 데이터 불균형(Non-IID) 환경에서 편향 문제를 해소하고 범용적 예측 성능을 확보하기 위한 독자적인 결합 알고리즘을 보유하고 있습니다.</p>
             </div>
             <div class="card">
                 <h3>3중 프라이버시 보호 아키텍처</h3>
-                <p>통신 구간 암호화(mTLS), 연산 환경 보호(TEE), 모델 역공학 방지(SMPC/DP)의 융합 설계를 통해 제로 트러스트(Zero Trust) 보안을 실현합니다.</p>
+                <p>통신 구간 암호화(mTLS), 연산 환경 보호(TEE), 모델 역공학 방지(SMPC/DP)를 융합 설계하여 제로 트러스트(Zero Trust) 보안 원칙에 부합하는 아키텍처를
+                    추구합니다.</p>
             </div>
             <div class="card">
                 <h3>엣지 탑재형 자동 전처리 모듈</h3>
-                <p>현장의 다양한 데이터 편차를 엣지 서버에서 자동으로 표준화하여, 솔루션 도입 즉시 고품질 학습 데이터를 확보할 수 있습니다.</p>
+                <p>현장의 다양한 데이터 편차를 엣지 서버에서 자동으로 표준화하여, 플랫폼 도입 초기부터 학습 데이터의 품질을 안정적으로 유지하는 것을 목표로 합니다.</p>
             </div>
         </div>
     </section>
 
     <section id="service">
-        <h2 class="section-title">솔루션</h2>
+        <h2 class="section-title">적용 분야</h2>
+        <p style="text-align: center; color: #555; max-width: 700px; margin: -20px auto 40px auto; font-size: 1.05rem;">
+            FedTensor는 대학병원과의 임상 협력을 통해 의료 AI 혁신 기술을 개발하고 있습니다. 데이터 프라이버시를 지키면서도 다기관 임상 지식을 결집하는 것이 저희의 핵심 과제입니다.</p>
         <div class="grid">
             <div class="card">
-                <h3>요로결석 쇄석술 성공률 예측 솔루션</h3>
-                <p>다기관 임상 데이터를 결합하여 구축된 의료 특화 AI 모델입니다. 환자의 고통을 줄이고 시술의 예측 가능성을 높여 병원 운영의 전문성을 강화합니다.</p>
+                <h3>🏥 다기관 임상 AI 연구</h3>
+                <p>산부인과, 영상의학과 등 전문 임상 영역에서 대학병원과 함께 연합학습 기반 AI 모델을 연구하고 있습니다. 데이터 반출 없이 다기관 임상 경험을 하나의 모델로 통합하는 것이
+                    목표입니다.</p>
             </div>
             <div class="card">
-                <h3>망분리 환경 기반 도메인 특화 CS 인력 AI 트레이닝 챗봇</h3>
-                <p>외부 유출이 차단된 제조·공공 기관 전용 구축형 챗봇입니다. 내부 지식 자산을 안전하게 학습하여 숙련된 지능을 현장에 즉시 배치할 수 있습니다.</p>
+                <h3>🔬 임상 의사결정 지원 AI</h3>
+                <p>환자 모니터링, 질병 예측 등 실제 임상 현장의 의사결정을 돕는 AI 기술을 개발 중입니다. 의료진의 경험적 직관을 데이터 기반의 근거로 보완하여 더 나은 환자 결과를 추구합니다.
+                </p>
+            </div>
+            <div class="card">
+                <h3>🔒 프라이버시 보존 의료 데이터 인프라</h3>
+                <p>각 의료기관의 데이터 주권을 최우선으로 고려한 엣지 학습 인프라를 구축합니다. 민감한 환자 정보는 기관 외부로 반출되지 않으며, 학습된 지능만이 안전하게 공유됩니다.</p>
             </div>
         </div>
     </section>
@@ -254,7 +298,7 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>페드텐서(주) 법인 설립</td>
+                    <td>페드텐서(주) 설립</td>
                     <td>2026.04.08</td>
                 </tr>
             </tbody>
@@ -291,4 +335,5 @@
     </footer>
 
 </body>
+
 </html>
